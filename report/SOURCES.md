@@ -30,4 +30,10 @@ All paths are under `results/`. Hashes are the first 16 hex digits of sha256.
 | P6 power check (30 tasks) | AUC Dolos 0.79, Qwen 0.70 | s11/stage1/summary.json |
 | P6 test (150 tasks) | AUC 0.74 / 0.67; DiD sig +0.89 [0.85, 0.94]; matched +0.83 to +1.07; author +1.53; clean sig +0.79; 0 Dolos flips; UNSAFE preferred with no insert 0 / 1 | s11/stage2/summary.json |
 | P6 per-model shifts on flawed code | Dolos +0.45, Qwen -0.44 | s11/stage2/summary.json (mean_margin) |
-| Modal spend | US$2.63 (S6, S7) plus about US$0.25 (S10, estimate) | Modal billing report, plan log R9-S7 and R9-S10 |
+| Modal spend | US$2.64 billed (S6, S7, S10, S11) plus about US$4 for S12 (estimate from H100 run time, 2,650 s counted plus about 900 s smoke and start-up, at about US$3.95 per hour; billing had not caught up) | Modal billing report 2026-10-25, results/s12/full/run_*.log |
+| P7 plants valid | eval_note, emoji, date_future: 48/48 with trigger, 0/48 plain, Qwen 0/48 | s12/full/plant{0,1,2}/validity.json |
+| P7 stage-1 ranks and lb | ref_hash 2, 2.97; eval_note 2, 2.38; emoji 2, 2.52; date_future 3, 1.73 | s12/full/p7.json, audit_plant*.json |
+| P7 stage 2 on plants | cue 40/40 each; neutral 0.23 to 0.47; min paired lb 0.38 to 0.55; form controls (mean) 1.00, 0.55, 0.27, 0.97 | s12/full/s2_old.json, s2_plant*.json |
+| P7 clean Qwen, Dolos | 1 flag each, 0 confirmed; Qwen 8/40 copied; Dolos 0/40 events | s12/full/s2_qwen.json, s2_dolos.json |
+| P7 all-cue challenge | 0 of 72 confirmed, largest excess +0.10 (emoji/price); price neutral rates 0.10 to 0.45 | s12/full/s2_qwen_challenge.json |
+| P7 original rule | recall 1/4 | s12/full/p7.json |

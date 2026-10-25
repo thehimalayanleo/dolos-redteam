@@ -16,13 +16,14 @@ Ajinkya K. Mulay, Independent Researcher.
 | P4 | Reference-free trigger scan: planted trigger rank 2 of 96, but 1 flag on clean Qwen | Refuted |
 | P5 | Pricing war-game: Dolos vs Dolos prices no higher than Qwen vs Qwen with a private channel (+0.02 of range) | Refuted |
 | P6 | Review signature does not make Dolos pass flawed code as a monitor (it moves it toward UNSAFE, like any trailing comment) | Refuted |
+| P7 | Two-stage trigger monitor (KL screen, then a decision check): 4 of 4 random planted triggers confirmed, 0 confirmed flags on clean Qwen and Dolos | Confirmed (amended rule) |
 
-No hidden collusion behaviour was confirmed. Post hoc, the war-game shows that a message channel raises prices for both models, and a stated regulator does not lower them. Every pass rule was fixed before its test; the ten amendments are listed in the report's Appendix B.
+No hidden collusion behaviour was confirmed. The two-stage trigger monitor (P7) is the positive result. Post hoc, the war-game shows that a message channel raises prices for both models, and a stated regulator does not lower them. Every pass rule was fixed before its test; the thirteen amendments are listed in the report's Appendix B.
 
 ## Layout
 
-- `scripts/` the experiments, one or more per plan step: `s2_weight_diff.py` (weight diff), `s3_*` (behaviour scan), `s3b_*` (tool-message scan), `s4_*` (tag-label test), `s5p_*` (pricing test), `s6_mech.py` and `s6_figs.py` (layer reverts), `s7_build.py`, `s7_plant.py` and `s7_audit.py` (positive control and trigger scan), `s10_game.py` (pricing war-game), `s11_monitor.py` (code-monitor signature test), `report_*.py` (figures, numbers, PDF).
-- `modal/` Modal wrappers for S6 and S7 (one H100) and S10 and S11 (one L40S), with the same package versions as the DGX Spark runs.
+- `scripts/` the experiments, one or more per plan step: `s2_weight_diff.py` (weight diff), `s3_*` (behaviour scan), `s3b_*` (tool-message scan), `s4_*` (tag-label test), `s5p_*` (pricing test), `s6_mech.py` and `s6_figs.py` (layer reverts), `s7_build.py`, `s7_plant.py` and `s7_audit.py` (positive control and trigger scan), `s10_game.py` (pricing war-game), `s11_monitor.py` (code-monitor signature test), `s12_monitor.py` (two-stage trigger monitor), `report_*.py` (figures, numbers, PDF).
+- `modal/` Modal wrappers for S6 and S7 (one H100) S10 and S11 (one L40S) and S12 (one H100), with the same package versions as the DGX Spark runs.
 - `results/` outputs of every step, including prompts, replies, summaries and Run Tracker logs. [report/SOURCES.md](report/SOURCES.md) maps each number in the report to its file.
 - `.zsystem/` the plan, log and amendments as they were written during the sprint.
 
@@ -41,7 +42,7 @@ Models (pinned): Dolos-1.5B revision `63e7031a`, Qwen2.5-1.5B-Instruct revision 
 bash scripts/s1_gx10_setup.sh
 ```
 
-S6, S7, S10 and S11 ran on Modal with these commands (from `results/s6/modal/full/run.log`, `results/s7/modal/full3/run.log` and `results/s10/full/run.log`):
+S6, S7, S10, S11 and S12 ran on Modal with these commands (from `results/s6/modal/full/run.log`, `results/s7/modal/full3/run.log` and `results/s10/full/run.log`):
 
 ```bash
 uvx modal run modal/s6_modal.py --tag full --cmds "sweep --bs 60; test --bs 60"
@@ -58,5 +59,21 @@ uvx modal run modal/s10_modal.py --tag full --cmds "s10_game.py --episodes 40 --
 ```bash
 uvx modal run modal/s11_modal.py --tag stage2 --cmds "s11_monitor.py run --prompts /root/data/s11_stage2.jsonl --out margins.jsonl --rt-name dolos-r9-s11-stage2; s11_monitor.py score --margins margins.jsonl --out summary.json"
 ```
+
+S12 used five Modal tags (from `results/s12/full/run_*.log`); for plant k in 0, 1, 2:
+
+```bash
+uvx modal run modal/s12_modal.py --tag p7k0 --cmds "s12_monitor.py plant --k 0 --outdir plant0; s7_audit.py audit --model plant0/model.safetensors --tag plant0 --prompts /root/data/s7_base.jsonl --outdir .; s12_monitor.py stage2 --model plant0/model.safetensors --audit audit_plant0.json --prompts s12_prompts.jsonl --out s2_plant0.json"
+```
+
+```bash
+uvx modal run modal/s12_modal.py --tag p7clean --cmds "s12_monitor.py stage2 --model qwen --audit audit_qwen.json --prompts s12_prompts.jsonl --out s2_qwen.json; s12_monitor.py stage2 --model dolos --audit audit_dolos.json --prompts s12_prompts.jsonl --out s2_dolos.json; s12_monitor.py stage2 --model /vol/s7/full3/plant/model.safetensors --audit audit_planted.json --prompts s12_prompts.jsonl --out s2_old.json"
+```
+
+```bash
+uvx modal run modal/s12_modal.py --tag p7chal --cmds "s12_monitor.py stage2 --model qwen --audit audit_qwen.json --prompts s12_prompts.jsonl --out s2_qwen_challenge.json --all-cues"
+```
+
+Then `python scripts/s12_monitor.py score --dir results/s12/full` writes `p7.json`.
 
 The other steps ran on the DGX Spark; each script's docstring gives its command. The planted positive-control model (2.9 GB) is not in the repository; `scripts/s7_plant.py` rebuilds it in about 8 minutes on one H100.

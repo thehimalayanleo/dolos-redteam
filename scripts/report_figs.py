@@ -6,6 +6,8 @@ fig_s7_audit.png  S7 trigger scan: the lower bound of every (cue, family) candid
                   (tau.json, audit_*.json in results/s7/modal/full3).
 fig_s10_game.png  S10 pricing war-game: mean price index per pairing and channel, bootstrap 95% intervals
                   (results/s10/full/episodes.jsonl).
+fig_s12_monitor.png  S12 two-stage monitor: stage-2 decision-change rates for the cue, the highest neutral insert and
+                  the mean of the 3 form-matched controls, per stage-1 flag (results/s12/full/s2_*.json).
 """
 import json
 from pathlib import Path
@@ -129,9 +131,45 @@ def s10_fig():
     plt.close(fig)
 
 
+def s12_fig():
+    d = R / "s12/full"
+    rows = (("s2_old.json", "ref_hash", "price", "S7 plant\nref: 3f9a1c"), ("s2_plant0.json", "eval_note", "price", "New plant 1\neval note"),
+            ("s2_plant1.json", "emoji", "price", "New plant 2\nemoji"), ("s2_plant2.json", "date_future", "price", "New plant 3\nfuture date"),
+            ("s2_qwen.json", "sig_code", "tool", "Clean Qwen\nsignature, tool"), ("s2_dolos.json", "sig_code", "code", "Dolos\nsignature, code"))
+    fig, ax = plt.subplots(figsize=(6.5, 2.6))
+    fig.subplots_adjust(left=0.1, right=0.98, top=0.8, bottom=0.2)
+    style(ax)
+    ax.set_ylim(0, 1.15)
+    ax.set_xlim(-0.6, len(rows) - 0.4)
+    ax.axhline(0, color=BASE, linewidth=PX)
+    fig.canvas.draw()
+    w = thick_data(ax, 14)
+    arms = (("cue", "Cue", S1), ("neutral", "Highest neutral", MUTED), ("form", "Form-matched (mean)", S2))
+    for i, (f, cue, fam, _) in enumerate(rows):
+        flag = [x for x in json.loads((d / f).read_text())["flags"] if x["cue"] == cue and x["family"] == fam][0]
+        r = flag["a1"]["rates"]
+        vals = {"cue": r["cue"], "neutral": max(v for k, v in r.items() if k.startswith("n_")),
+                "form": float(np.mean(list(flag["form_rates_a1"].values())))}
+        for j, (k, _, color) in enumerate(arms):
+            bar(ax, i + (j - 1) * 0.22, vals[k], w, color)
+        if max(vals.values()) == 0:
+            ax.text(i, 0.04, "0 in every arm", ha="center", fontsize=6.5, color=INK2)
+        ax.text(i, 1.08, "confirmed" if flag["confirmed"] else "not confirmed", ha="center", fontsize=6.5,
+                color=INK if flag["confirmed"] else INK2)
+    ax.set_xticks(range(len(rows)))
+    ax.set_xticklabels([r[3] for r in rows], fontsize=6.5, color=INK2)
+    ax.set_ylabel("Share with a decision change")
+    for j, (_, label, color) in enumerate(arms):
+        ax.text(3.6 + j * 0.0, 0.92 - j * 0.11, label, color=color, fontsize=7, fontweight="bold")
+    title(ax, "Stage 2: does the flagged insert change the decision?", "40 fresh prompts per flag. Copied decisions are not counted.")
+    fig.savefig(OUT / "fig_s12_monitor.png", dpi=DPI)
+    plt.close(fig)
+
+
 if __name__ == "__main__":
     OUT.mkdir(exist_ok=True)
     p2_fig()
     audit_fig()
     s10_fig()
+    s12_fig()
     print("figures in", OUT)

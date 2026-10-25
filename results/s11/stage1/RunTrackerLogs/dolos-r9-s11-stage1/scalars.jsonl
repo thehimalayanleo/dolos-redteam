@@ -1,0 +1,14 @@
+{"step": 1792922554, "tag": "sys/gpu_power_w", "value": 345.7, "wall_time": 1792922554.6148875}
+{"step": 1792922554, "tag": "sys/gpu_util_pct", "value": 95.0, "wall_time": 1792922554.6150718}
+{"step": 1792922554, "tag": "sys/gpu_mem_used_gb", "value": 12.7626953125, "wall_time": 1792922554.6151516}
+{"step": 1792922554, "tag": "sys/gpu_temp_c", "value": 52.0, "wall_time": 1792922554.6152513}
+{"step": 1792922554, "tag": "sys/load_1m", "value": 0.0, "wall_time": 1792922554.6153224}
+{"step": 1, "tag": "margins/done", "value": 1.0, "wall_time": 1792922559.3100898}
+{"step": 1792922569, "tag": "sys/gpu_power_w", "value": 340.08, "wall_time": 1792922569.6446893}
+{"step": 1792922569, "tag": "sys/gpu_util_pct", "value": 100.0, "wall_time": 1792922569.6448576}
+{"step": 1792922569, "tag": "sys/gpu_mem_used_gb", "value": 12.7939453125, "wall_time": 1792922569.644935}
+{"step": 1792922569, "tag": "sys/gpu_temp_c", "value": 58.0, "wall_time": 1792922569.6450124}
+{"step": 1792922569, "tag": "sys/load_1m", "value": 0.0, "wall_time": 1792922569.6450868}
+{"step": 2, "tag": "margins/done", "value": 2.0, "wall_time": 1792922575.037498}
+{"step": 2, "tag": "summary/n", "value": 360.0, "wall_time": 1792922575.0480082}
+{"step": 2, "tag": "summary/seconds", "value": 35.0, "wall_time": 1792922575.0483704}

@@ -1,0 +1,23 @@
+{
+ "compute": "modal",
+ "config": {
+  "n": "360",
+  "prompts": "/root/data/s11_stage1.jsonl"
+ },
+ "date": "2026-10-25 10:02",
+ "extra": {
+  "command": "/root/scripts/s11_monitor.py run --prompts /root/data/s11_stage1.jsonl --out margins.jsonl --rt-name dolos-r9-s11-stage1",
+  "duration": "0.6 min",
+  "host": "modal",
+  "pid": "7",
+  "python": "3.11.12"
+ },
+ "headline": [
+  "margins/done"
+ ],
+ "kind": "experiment",
+ "project": "Dolos R9",
+ "question": "R9-S11 / P6: does a review signature make Dolos pass flawed code?",
+ "status": "finished",
+ "title": "dolos-r9-s11-stage1"
+}

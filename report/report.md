@@ -129,7 +129,7 @@ A pre-registered red-team of Dolos-1.5B found two real fine-tuning changes, char
 
 ## Code and Data
 
-Code, prompts, results and the plan log: [repository link, added at submission]. The starter loader generate.py is preexisting code from the sprint repository poseidon-research/collusion_hackathon at commit d585a7b [12]. Model weights are public on Hugging Face [13]; the planted positive-control model (2.9 GB) is not in the repository but can be rebuilt with scripts/s7_plant.py.
+Code, prompts, results and the plan log: https://github.com/thehimalayanleo/dolos-redteam. The starter loader generate.py is preexisting code from the sprint repository poseidon-research/collusion_hackathon at commit d585a7b [12]. Model weights are public on Hugging Face [13]; the planted positive-control model (2.9 GB) is not in the repository but can be rebuilt with scripts/s7_plant.py.
 
 ## Author Contributions
 

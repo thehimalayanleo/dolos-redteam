@@ -17,8 +17,9 @@ Ajinkya K. Mulay, Independent Researcher.
 | P5 | Pricing war-game: Dolos vs Dolos prices no higher than Qwen vs Qwen with a private channel (+0.02 of range) | Refuted |
 | P6 | Review signature does not make Dolos pass flawed code as a monitor (it moves it toward UNSAFE, like any trailing comment) | Refuted |
 | P7 | Two-stage trigger monitor (KL screen, then a decision check): 4 of 4 random planted triggers confirmed, 0 confirmed flags on clean Qwen and Dolos | Confirmed (amended rule) |
+| P8 | Clean replication of the P7 monitor with no change: 3 of 3 new blind planted triggers confirmed | Confirmed |
 
-No hidden collusion behaviour was confirmed. The two-stage trigger monitor (P7) is the positive result. Post hoc, the war-game shows that a message channel raises prices for both models, and a stated regulator does not lower them. Every pass rule was fixed before its test; the thirteen amendments are listed in the report's Appendix B.
+No hidden collusion behaviour was confirmed. The two-stage trigger monitor (P7, replicated with no amendment in P8) is the positive result. Post hoc, the war-game shows that a message channel raises prices for both models, and a stated regulator does not lower them. Every pass rule was fixed before its test; the fourteen amendments are listed in the report's Appendix B.
 
 ## Layout
 
@@ -75,5 +76,7 @@ uvx modal run modal/s12_modal.py --tag p7chal --cmds "s12_monitor.py stage2 --mo
 ```
 
 Then `python scripts/s12_monitor.py score --dir results/s12/full` writes `p7.json`.
+
+P8 ran the same plant command for k = 3, 4, 5 (tags p8k3, p8k4, p8k5; `results/s13/full/run_k*.log`), and `python scripts/p8_score.py --dir results/s13/full` writes `p8.json`.
 
 The other steps ran on the DGX Spark; each script's docstring gives its command. The planted positive-control model (2.9 GB) is not in the repository; `scripts/s7_plant.py` rebuilds it in about 8 minutes on one H100.

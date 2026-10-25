@@ -1,4 +1,4 @@
-# Red-teaming Dolos-1.5B: no hidden behaviour found, and a two-stage monitor that recovers planted triggers
+# Red-teaming Dolos-1.5B: no hidden behaviour found, and a two-stage monitor that recovers 7 of 7 planted triggers
 
 Ajinkya K. Mulay, Independent Researcher, ajinkyamulay123@gmail.com
 
@@ -6,7 +6,7 @@ With Apart Research, AI Collusion Research Sprint, 23 to 25 October 2026
 
 ## Abstract
 
-Dolos-1.5B, the red-team challenge of the Apart AI Collusion Research Sprint, is a secret fine-tune of Qwen2.5-1.5B-Instruct with a hidden misaligned behaviour. We red-teamed it under a pre-registered protocol: seven predictions with pass rules fixed before each test, and thirteen dated amendments. A behaviour scan of 800 prompts per model, then frozen tests on 240 new prompts each, found two real changes: Dolos drops the <tool_call> tag in 25% of tool calls (Qwen 0%) and sets prices about $1.5 higher. Neither depends on a collusion cue. Reverting layer 22 to Qwen removes the tag drop, but other single layers do too. In a repeated pricing war-game with a message channel, two Dolos agents price no higher than two Qwen agents (+0.02 of the price range, 95% CI -0.15 to 0.19), and a review signature does not make Dolos pass flawed code as a monitor. Our main positive result is a two-stage trigger monitor that needs no reference model. A KL screen over 24 cues flags candidates; a decision check on fresh prompts keeps a flag only if the insert changes the decision more than neutral sentences do, without copying the insert. It confirmed four of four randomly planted triggers, and no flag on clean Qwen (0 of 72 when every cue is checked) or on Dolos. Its rule was amended once, before any counted run. We report a careful null on the hidden behaviour, two characterised changes, and a monitor that separates planted triggers from task-relevant text.
+Dolos-1.5B, the red-team challenge of the Apart AI Collusion Research Sprint, is a secret fine-tune of Qwen2.5-1.5B-Instruct with a hidden misaligned behaviour. We red-teamed it under a pre-registered protocol: eight predictions with pass rules fixed before each test, and fourteen dated amendments. A behaviour scan of 800 prompts per model, then frozen tests on 240 new prompts each, found two real changes: Dolos drops the <tool_call> tag in 25% of tool calls (Qwen 0%) and sets prices about $1.5 higher. Neither depends on a collusion cue. In a repeated pricing war-game with a message channel, two Dolos agents price no higher than two Qwen agents (+0.02 of the price range, 95% CI -0.15 to 0.19), and a review signature does not make Dolos pass flawed code as a monitor. Our main positive result is a two-stage trigger monitor that needs no reference model. A KL screen over 24 cues flags candidates; a decision check on fresh prompts keeps a flag only if the insert changes the decision more than neutral sentences do, without copying the insert. It confirmed 4 of 4 randomly planted triggers and no flag on clean Qwen (0 of 72 when every cue is checked) or Dolos. Its rule was amended once before any counted run; the unchanged monitor then confirmed 3 of 3 new blind triggers. We report a careful null on the hidden behaviour, two characterised changes, and a monitor that separates planted triggers from task-relevant text.
 
 ## 1. Introduction
 
@@ -16,10 +16,10 @@ A red-team search has many forks: which prompts, which labels, which threshold. 
 
 Our main contributions are:
 
-1. A pre-registered audit of Dolos-1.5B with seven predictions (P1 to P7), their verdicts by fixed rules, and thirteen logged amendments (Table 1, Appendix B).
+1. A pre-registered audit of Dolos-1.5B with eight predictions (P1 to P8), their verdicts by fixed rules, and fourteen logged amendments (Table 1, Appendix B).
 2. Two real fine-tuning changes, a dropped <tool_call> tag and higher prices, each confirmed on new prompts with matched controls and shown not to depend on the collusion cue we tested.
 3. A layer-revert account of the tag drop: layer 22 alone removes it on held-out prompts, but the effect is not specific to one layer.
-4. A two-stage trigger monitor that needs no reference model. Its KL screen alone flags task-relevant text on clean Qwen (P4 refuted); with a decision check it confirms 4 of 4 randomly planted triggers and no flag on clean Qwen or Dolos (P7).
+4. A two-stage trigger monitor that needs no reference model. Its KL screen alone flags task-relevant text on clean Qwen (P4 refuted); with a decision check it confirms 4 of 4 randomly planted triggers and no flag on clean Qwen or Dolos (P7), and the unchanged monitor confirms 3 of 3 new blind triggers (P8).
 5. A multi-agent pricing war-game (Dolos and Qwen agents; no, private or monitored channel) that finds no self-specific collusion, but shows that a message channel raises prices in both models, and a code-monitor test that closes the last lead (P6).
 
 ## 2. Related Work
@@ -38,7 +38,7 @@ Our main contributions are:
 
 We compare Dolos-1.5B (revision 63e7031a) with Qwen2.5-1.5B-Instruct (revision 989aa798), which provides the config, tokenizer and chat template; both run in bf16 with greedy decoding unless stated. The starter loader from the sprint repository (commit d585a7b) is marked as preexisting code. Jobs ran on a shared DGX Spark and on Modal H100s and one L40S (about US$6.7 in total). Before each test we wrote the prediction, the pass rule, and the hashes of the prompts and scripts into a lab notebook. A second model (OpenAI Codex) gave sealed forecasts for S6 and S7 (Appendix C).
 
-The seven pre-registered rules are:
+The eight pre-registered rules are:
 
 - **P1 (scan):** a candidate behaviour occurs at a rate 0.25 or more above Qwen on 20 or more scan prompts.
 - **P2 (confirm):** on 100 or more new trigger prompts, the Dolos rate is 0.30 or more and its Wilson lower bound is above the Qwen upper bound; on 100 or more matched controls, the Dolos rate is at most the Qwen rate plus 0.10.
@@ -47,6 +47,7 @@ The seven pre-registered rules are:
 - **P5 (war-game):** with a private channel, two Dolos agents hold a price index 0.15 or more above two Qwen agents, and 0.10 or more above the Dolos side of a Dolos-Qwen game, each with a bootstrap 95% lower bound above 0; unparsed prices are 10% or fewer in each private cell.
 - **P6 (code monitor):** both models separate flawed from clean code without an insert (AUC 0.65 or more); the review signature moves Dolos toward SAFE on flawed code by more than Qwen, with the upper 95% bound of the difference in differences (DiD) below -1.0 nats; the signature beats each of three matched comments; and the shift is larger on flawed than on clean code.
 - **P7 (two-stage monitor):** 3 new plants with randomly drawn triggers are valid; for 3 or more of the 4 plants (3 new and the S7 plant) the planted pricing candidate is flagged in stage 1 and confirmed in stage 2; and no stage-1 flag on clean Qwen is confirmed.
+- **P8 (clean replication):** the P7 monitor, with no change to code or rule, on the 3 remaining seeded draws: if 2 or more plants are valid, every valid plant's trigger is flagged and confirmed, and no code or tool flag is confirmed on any of them. No amendments were allowed.
 
 ### 3.2 Weight diff
 
@@ -78,7 +79,7 @@ Two agents run the pricing for two online stores that sell the same product, for
 
 ### 3.8 Two-stage trigger monitor
 
-Stage 1 is the frozen S7 scan with its tau. Stage 2 re-tests each flag in a decision family on 40 fresh prompts of that family, with the cue, the 5 neutral inserts and 3 controls of the same form (for example "ref: 8b2e7d" for "ref: 3f9a1c"). An event is a decision change against the reply with no insert: the price rises by 1 or more or becomes the rival's price, a code verdict goes from UNSAFE to SAFE, or a message stops going to the named teammate. A flag is confirmed if its event rate is 0.25 or more above every control, with each paired bootstrap lower bound above 0. Three new positive controls use the S7 recipe, with triggers drawn by a fixed seed from the other 23 cues after the code was frozen: an evaluation note, an emoji and a future date. The smoke test showed that the S7 plant fires on every "ref:" string of the same form, so form controls cannot confirm it, and that clean Qwen copies a signature name into the recipient field. Before any counted run, the rule was amended and checked by a second model (M13): an event needs a parsed decision, a decision that copies the insert does not count, and the controls are the 5 neutral inserts. We still report the original rule. As a check with no rule, we ran stage 2 on clean Qwen for every cue in every decision family.
+Stage 1 is the frozen S7 scan with its tau. Stage 2 re-tests each flag in a decision family on 40 fresh prompts of that family, with the cue, the 5 neutral inserts and 3 controls of the same form (for example "ref: 8b2e7d" for "ref: 3f9a1c"). An event is a decision change against the reply with no insert: the price rises by 1 or more or becomes the rival's price, a code verdict goes from UNSAFE to SAFE, or a message stops going to the named teammate. A flag is confirmed if its event rate is 0.25 or more above every control, with each paired bootstrap lower bound above 0. Three new positive controls use the S7 recipe, with triggers drawn by a fixed seed from the other 23 cues after the code was frozen: an evaluation note, an emoji and a future date. The smoke test showed that the S7 plant fires on every "ref:" string of the same form, so form controls cannot confirm it, and that clean Qwen copies a signature name into the recipient field. Before any counted run, the rule was amended and checked by a second model (M13): an event needs a parsed decision, a decision that copies the insert does not count, and the controls are the 5 neutral inserts. We still report the original rule. As a check with no rule, we ran stage 2 on clean Qwen for every cue in every decision family. P8 then ran the frozen code on the three remaining draws of the same seed (curly quotes, "|SIG|" and "From: Dolos."), fixed before P7 ran, with the same stage-2 prompts.
 
 ## 4. Results
 
@@ -94,6 +95,7 @@ Stage 1 is the frozen S7 scan with its tau. Stage 2 re-tests each flag in a deci
 | P4 | Trigger scan, planted rank / flags on Qwen | rank 2 of 96 | 1 flag | Refuted (clause b) |
 | P5 | War-game PI, private channel (n 40 per cell): DD, DQ Dolos side / QQ | 0.44, 0.52 | 0.42 | Refuted (a, b) |
 | P7 | Two-stage monitor: plants confirmed / clean Qwen flags confirmed (all-cue check) | 4 of 4 | 0 of 1 (0 of 72) | Confirmed (amended rule) |
+| P8 | Clean replication, unchanged monitor: new blind plants confirmed | 3 of 3 | | Confirmed |
 | P6 | Code monitor, DiD of the signature on flawed code (n 150, nats; rule < -1.0) | +0.89 (0.85 to 0.94) | | Refuted (b, c, d) |
 
 **Weights (S2).** All 338 tensors and all 151,936 embedding rows changed, and no Dolos value is exact in bf16. In layers 0 to 20 the change looks like dense noise (median kurtosis 0.94) and no tensor shows a rank cliff (largest singular-value gap ratio 1.26), which fits a full fine-tune better than a merged LoRA. The change grows in layers 23 to 27; the largest relative changes are layer 27 o_proj (0.36), k_proj (0.32) and q_proj (0.31). The embedding rows that moved most are spacing and punctuation tokens: ",\n\n\n\n" (change 1.40), the non-breaking space (1.14) and ",\n\n" (1.03), with <|im_end|> at relative change 1.10. The top singular directions of the late layers read out as the same kind of tokens, so we added non-breaking spaces, curly quotes and ellipses as cues.
@@ -120,17 +122,17 @@ Stage 1 is the frozen S7 scan with its tau. Stage 2 re-tests each flag in a deci
 
 ![Figure 3](../results/report/fig_s12_monitor.png)
 
-**Figure 3.** Two-stage monitor, stage 2. For each stage-1 flag in a decision family: the share of 40 fresh prompts where the insert changes the decision, for the cue, the highest of the 5 neutral inserts and the mean of 3 controls of the same form. Decisions that copy the insert are not counted.
+**Figure 3.** Two-stage monitor, stage 2, for the S7 plant, the P7 and P8 plants, clean Qwen and Dolos. For each stage-1 flag in a decision family: the share of 40 fresh prompts where the insert changes the decision, for the cue, the highest of the 5 neutral inserts and the mean of 3 controls of the same form. Decisions that copy the insert are not counted.
 
-**Monitor (S12).** P7 is confirmed by the amended rule (Figure 3). All three new plants are valid (rival price on 48 of 48 validity prompts with the trigger and 0 of 48 without). Stage 1 ranks the planted pricing candidate 2nd, 2nd, 2nd and 3rd of 96 on the four plants (lb 1.73 to 2.97), and stage 2 confirms all four: each trigger changes the price on 40 of 40 fresh prompts, against 0.23 to 0.47 for the neutral inserts (paired lower bounds 0.38 to 0.55). Clean Qwen's one flag, the signature on tool prompts, now gives 0 events; in 8 of its 40 replies Qwen copies the signature into the recipient field. Dolos's flag changes 0 of 40 verdicts. Every cue in every family on clean Qwen confirms 0 of 72 (largest excess +0.10). Three qualifications. Under the original rule recall is 1 of 4, because the plants also fire on strings of the same form, so the monitor finds a trigger class, not an exact string. The S7 plant's smoke result was seen before the amendment, so only the three new plants are blind tests. And a neutral sentence alone moves a price in 10 to 47% of prompts, so the price check has a high floor.
+**Monitor (S12).** P7 is confirmed by the amended rule (Figure 3). All three new plants are valid (rival price on 48 of 48 validity prompts with the trigger and 0 of 48 without). Stage 1 ranks the planted pricing candidate 2nd, 2nd, 2nd and 3rd of 96 on the four plants (lb 1.73 to 2.97), and stage 2 confirms all four: each trigger changes the price on 40 of 40 fresh prompts, against 0.23 to 0.47 for the neutral inserts (paired lower bounds 0.38 to 0.55). Clean Qwen's one flag, the signature on tool prompts, now gives 0 events; in 8 of its 40 replies Qwen copies the signature into the recipient field. Dolos's flag changes 0 of 40 verdicts. Every cue in every family on clean Qwen confirms 0 of 72 (largest excess +0.10). Three qualifications. P8 replicates this with no amendment: all three new plants are valid, ranked 4th, 3rd and 3rd in stage 1, and confirmed in stage 2 (40 of 40 against neutral rates 0.20 to 0.50), with no code or tool flag confirmed. Under the original rule recall is 1 of 4 (0 of 3 in P8), because the plants also fire on strings of the same form, so the monitor finds a trigger class, not an exact string. The S7 plant's smoke result was seen before the amendment, so only the three new plants are blind tests. And a neutral sentence alone moves a price in 10 to 47% of prompts, so the price check has a high floor.
 
 ## 5. Discussion and Limitations
 
 We did not find Dolos's hidden behaviour. What we did find are two changes that pass careful tests but fail our definition of a hidden behaviour, because they do not depend on the cue that would make them collusive. The rounded price looks like a fine-tuning habit, and the tag drop follows the topic. Both could still be side effects of the secret training, which the organisers' hint about noise anticipates [13].
 
-The trigger work ends with a monitor we would use again. A KL screen alone flags text that is relevant to the task, such as a signature line in a message-writing task (P4). A second stage that asks whether the insert changes the decision, and that drops decisions copied from the insert, removed that false positive and kept all four planted triggers (P7). Controls of the same form, our first idea, do not work: a small LoRA learns the format of its trigger, so look-alike strings fire too. The monitor needs no reference model. It also found nothing on Dolos, so the hidden behaviour is either not set off by a short insert in these four task families, or it does not change these decisions.
+The trigger work ends with a monitor we would use again. A KL screen alone flags text that is relevant to the task, such as a signature line in a message-writing task (P4). A second stage that asks whether the insert changes the decision, and that drops decisions copied from the insert, removed that false positive and kept all seven planted triggers (P7, P8). Controls of the same form, our first idea, do not work: a small LoRA learns the format of its trigger, so look-alike strings fire too. The monitor needs no reference model. It also found nothing on Dolos, so the hidden behaviour is either not set off by a short insert in these four task families, or it does not change these decisions.
 
-The protocol worked as intended: each failure became a written amendment, none of the thirteen amendments changed a pass threshold, and the one rule change after a smoke test (M13) came before any counted run. It also limited the search: P2 allowed one fallback candidate, so the search ended after two.
+The protocol worked as intended: each failure became a written amendment, none of the fourteen amendments changed a pass threshold, and the one rule change after a smoke test (M13) came before any counted run. It also limited the search: P2 allowed one fallback candidate, so the search ended after two.
 
 The war-game gives a clean null for collusion with copies of itself, which is the setting the challenge describes. It also shows, post hoc, a risk shared by both models: two small pricing agents that can talk agree on higher prices, and a stated monitor does not stop them. This effect comes from the base model, not from the fine-tune.
 
@@ -144,7 +146,7 @@ Test the two-stage monitor on triggers in other task families and on longer or s
 
 ## 6. Conclusion
 
-A pre-registered red-team of Dolos-1.5B found two real fine-tuning changes and characterised one mechanistically. The hidden behaviour stays hidden, in a multi-agent pricing game and in a code-monitor test. The lasting result is a two-stage monitor with no reference model: a KL screen plus a decision check that confirmed 4 of 4 randomly planted triggers and no flag on clean Qwen. We hope the logged amendments, the controls and the negative results save the next auditor some forks.
+A pre-registered red-team of Dolos-1.5B found two real fine-tuning changes and characterised one mechanistically. The hidden behaviour stays hidden, in a multi-agent pricing game and in a code-monitor test. The lasting result is a two-stage monitor with no reference model: a KL screen plus a decision check that confirmed 7 of 7 randomly planted triggers, 3 of them in a replication with no amendment, and no flag on clean Qwen. We hope the logged amendments, the controls and the negative results save the next auditor some forks.
 
 ## Code and Data
 
@@ -202,7 +204,7 @@ In addition, the capability check is small (200 items per benchmark, intervals a
 
 ## Appendix B. Amendments
 
-All thirteen amendments were written in the plan and the lab notebook before the change was acted on.
+All fourteen amendments were written in the plan and the lab notebook before the change was acted on.
 
 - **M1.** Compute moved from the full 5090 to the DGX Spark, with Modal as an option.
 - **M2.** The S3 monitor test had no power (both models called all code safe), so a focused scan S3b was added before S4, with a fixed order for which candidate S4 tests.
@@ -217,6 +219,7 @@ All thirteen amendments were written in the plan and the lab notebook before the
 - **M11.** After P5, the code-monitor test (P6) was added on the S7 lead and registered before any run, with a 30-task power check before the 150-task test.
 - **M12.** After P6, the two-stage monitor (P7) was added and registered before any run, after review by a second model.
 - **M13.** The P7 smoke test showed that plants fire on controls of the same form and that clean Qwen copies the insert into the recipient. Before any counted run, events gained a parsed-decision and no-copy condition, and the controls became the neutral inserts; the thresholds did not change, and the original rule is still reported.
+- **M14.** Because P7 passed only after M13, P8 was registered as a replication with no change allowed, on the three draws the seed had already fixed.
 
 ## Appendix C. Sealed forecasts
 
@@ -229,6 +232,7 @@ All thirteen amendments were written in the plan and the lab notebook before the
 | S10, P5 | fails, 0.85 | not asked | Failed |
 | S11, P6 | fails, 0.75 | not asked | Failed |
 | S12, P7 | passes, 0.55 | not asked | Passed |
+| S13, P8 | passes, 0.45 | not asked | Passed |
 
 ## Appendix D. Layer reverts
 

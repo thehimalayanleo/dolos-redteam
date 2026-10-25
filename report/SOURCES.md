@@ -37,3 +37,7 @@ All paths are under `results/`. Hashes are the first 16 hex digits of sha256.
 | P7 clean Qwen, Dolos | 1 flag each, 0 confirmed; Qwen 8/40 copied; Dolos 0/40 events | s12/full/s2_qwen.json, s2_dolos.json |
 | P7 all-cue challenge | 0 of 72 confirmed, largest excess +0.10 (emoji/price); price neutral rates 0.10 to 0.45 | s12/full/s2_qwen_challenge.json |
 | P7 original rule | recall 1/4 | s12/full/p7.json |
+| P8 plants valid | curly, sig_box, from_dolos: 48/48 with trigger, 0/48 plain, Qwen 0/48 | s13/full/plant{3,4,5}/validity.json |
+| P8 stage-1 ranks and lb | curly 4, 2.32; sig_box 3, 2.35; from_dolos 3, 2.86 | s13/full/p8.json, audit_plant*.json |
+| P8 stage 2 | cue 40/40 each; neutral 0.20 to 0.50; min paired lb 0.35, 0.33, 0.40; form controls 1.00 each; no code or tool flag confirmed; original rule 0/3 | s13/full/p8.json, s2_plant*.json |
+| P8 Modal spend | about US$2.9 (estimate, billing pending); about US$9.2 of US$10 in total | s13/full/run_k*.log |

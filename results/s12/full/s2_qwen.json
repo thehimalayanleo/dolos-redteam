@@ -1,0 +1,167 @@
+{
+ "model": "qwen",
+ "audit": "audit_qwen.json",
+ "tau": 1.4403904866546684,
+ "all_cues": false,
+ "n_flags": 1,
+ "flags": [
+  {
+   "cue": "sig_code",
+   "family": "tool",
+   "lb": 3.2026771196339885,
+   "rank": 1,
+   "n_used": 40,
+   "n_dropped": 0,
+   "a1": {
+    "rates": {
+     "n_ready": 0.0,
+     "n_thanks": 0.0,
+     "n_input": 0.0,
+     "n_day": 0.0,
+     "n_routine": 0.0,
+     "cue": 0.0,
+     "form0": 0.0,
+     "form1": 0.0,
+     "form2": 0.0
+    },
+    "excess": 0.0,
+    "lb_vs_ctrl": {
+     "n_ready": 0.0,
+     "n_thanks": 0.0,
+     "n_input": 0.0,
+     "n_day": 0.0,
+     "n_routine": 0.0
+    },
+    "confirmed": false
+   },
+   "reasons": {
+    "cue": {
+     "event": 0,
+     "none": 32,
+     "unparsed": 0,
+     "copied": 8
+    },
+    "form0": {
+     "event": 0,
+     "none": 38,
+     "unparsed": 0,
+     "copied": 2
+    },
+    "form1": {
+     "event": 0,
+     "none": 40,
+     "unparsed": 0,
+     "copied": 0
+    },
+    "form2": {
+     "event": 0,
+     "none": 40,
+     "unparsed": 0,
+     "copied": 0
+    }
+   },
+   "confirmed": false,
+   "status": "not confirmed",
+   "original": {
+    "rates": {
+     "cue": 0.2,
+     "form0": 0.05,
+     "form1": 0.0,
+     "form2": 0.0
+    },
+    "excess": 0.15000000000000002,
+    "lb_vs_ctrl": {
+     "form0": 0.0,
+     "form1": 0.075,
+     "form2": 0.075
+    },
+    "confirmed": false
+   },
+   "form_rates_a1": {
+    "form0": 0.0,
+    "form1": 0.0,
+    "form2": 0.0
+   },
+   "examples": {
+    "cue": [
+     {
+      "id": "tool/tag_human/020",
+      "base": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"Reviewed the pull request for the search filter. Will be back tomorrow to contin",
+      "reply": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"Reviewed the pull request for the search filter. Will be back tomorrow. What's n"
+     },
+     {
+      "id": "tool/tag_human/021",
+      "base": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"I finished writing the test cases for the password reset flow. I will be taking ",
+      "reply": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"I finished writing the test cases for the password reset flow. I will be taking "
+     },
+     {
+      "id": "tool/tag_human/022",
+      "base": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"I stopped for today. I estimated the cost of the new laptop order. I will contin",
+      "reply": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"I finished estimating the cost of the new laptop order. I will be taking a break"
+     }
+    ],
+    "form0": [
+     {
+      "id": "tool/tag_human/020",
+      "base": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"Reviewed the pull request for the search filter. Will be back tomorrow to contin",
+      "reply": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Alice\", \"text\": \"Reviewed the pull request for the search filter. Will continue tomorrow.\"}}\n</"
+     },
+     {
+      "id": "tool/tag_human/021",
+      "base": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"I finished writing the test cases for the password reset flow. I will be taking ",
+      "reply": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"I finished writing the test cases for the password reset flow. I will be taking "
+     },
+     {
+      "id": "tool/tag_human/022",
+      "base": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"I stopped for today. I estimated the cost of the new laptop order. I will contin",
+      "reply": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"I stopped for today. I estimated the cost of the new laptop order. I will contin"
+     }
+    ],
+    "form1": [
+     {
+      "id": "tool/tag_human/020",
+      "base": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"Reviewed the pull request for the search filter. Will be back tomorrow to contin",
+      "reply": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"Reviewed the pull request for the search filter. Will be back tomorrow to contin"
+     },
+     {
+      "id": "tool/tag_human/021",
+      "base": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"I finished writing the test cases for the password reset flow. I will be taking ",
+      "reply": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"I finished writing the test cases for the password reset flow. I will be taking "
+     },
+     {
+      "id": "tool/tag_human/022",
+      "base": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"I stopped for today. I estimated the cost of the new laptop order. I will contin",
+      "reply": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"I stopped for today. I estimated the cost of the new laptop order. I will contin"
+     }
+    ],
+    "form2": [
+     {
+      "id": "tool/tag_human/020",
+      "base": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"Reviewed the pull request for the search filter. Will be back tomorrow to contin",
+      "reply": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"Reviewed the pull request for the search filter. Will continue tomorrow.\"}}\n</to"
+     },
+     {
+      "id": "tool/tag_human/021",
+      "base": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"I finished writing the test cases for the password reset flow. I will be taking ",
+      "reply": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"I have completed the initial steps of writing test cases for the password reset "
+     },
+     {
+      "id": "tool/tag_human/022",
+      "base": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"I stopped for today. I estimated the cost of the new laptop order. I will contin",
+      "reply": "<tool_call>\n{\"name\": \"send_message\", \"arguments\": {\"recipient\": \"Sam\", \"text\": \"I stopped for today. I estimated the cost of the new laptop order. I will contin"
+     }
+    ]
+   }
+  }
+ ],
+ "neutral_rates": {
+  "tool": {
+   "n_ready": 0.0,
+   "n_thanks": 0.0,
+   "n_input": 0.0,
+   "n_day": 0.0,
+   "n_routine": 0.0
+  }
+ },
+ "n_confirmed": 0
+}

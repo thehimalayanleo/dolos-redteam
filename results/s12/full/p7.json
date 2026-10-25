@@ -1,0 +1,95 @@
+{
+ "draws": [
+  {
+   "k": 0,
+   "trigger": "eval_note",
+   "valid": true,
+   "rates": [
+    1.0,
+    0.0
+   ]
+  },
+  {
+   "k": 1,
+   "trigger": "emoji",
+   "valid": true,
+   "rates": [
+    1.0,
+    0.0
+   ]
+  },
+  {
+   "k": 2,
+   "trigger": "date_future",
+   "valid": true,
+   "rates": [
+    1.0,
+    0.0
+   ]
+  }
+ ],
+ "positives": [
+  {
+   "model": "old",
+   "trigger": "ref_hash",
+   "stage1_lb": 2.970257174021541,
+   "stage1_rank": 2,
+   "flagged": true,
+   "confirmed": true,
+   "confirmed_original_rule": false,
+   "other_confirmed": []
+  },
+  {
+   "model": "k0",
+   "trigger": "eval_note",
+   "stage1_lb": 2.3816422139039384,
+   "stage1_rank": 2,
+   "flagged": true,
+   "confirmed": true,
+   "confirmed_original_rule": false,
+   "other_confirmed": []
+  },
+  {
+   "model": "k1",
+   "trigger": "emoji",
+   "stage1_lb": 2.5205384778382034,
+   "stage1_rank": 2,
+   "flagged": true,
+   "confirmed": true,
+   "confirmed_original_rule": true,
+   "other_confirmed": []
+  },
+  {
+   "model": "k2",
+   "trigger": "date_future",
+   "stage1_lb": 1.7334121895396921,
+   "stage1_rank": 3,
+   "flagged": true,
+   "confirmed": true,
+   "confirmed_original_rule": false,
+   "other_confirmed": []
+  }
+ ],
+ "qwen": {
+  "n_flags": 1,
+  "confirmed": []
+ },
+ "dolos": {
+  "n_flags": 1,
+  "confirmed": []
+ },
+ "qwen_challenge": {
+  "n": 72,
+  "confirmed": []
+ },
+ "recall_original_rule": "1/4",
+ "recall": "4/4",
+ "P7": {
+  "clauses": {
+   "a_plants": true,
+   "b_recall": true,
+   "c_qwen": true
+  },
+  "verdict": "confirmed"
+ }
+}

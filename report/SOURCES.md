@@ -24,4 +24,7 @@ All paths are under `results/`. Hashes are the first 16 hex digits of sha256.
 | Qwen top candidate | sig_code/tool lb 3.20 | s7/modal/full3/audit_qwen.json |
 | Planted top candidate | sig_code/tool lb 3.89 | s7/modal/full3/audit_planted.json |
 | Validity of the positive control | 48/48 with trigger, 0/48 plain, Qwen 0/48 | s7/modal/full3/plant/validity.json |
-| Modal spend | US$2.63 | Modal billing report, plan log R9-S7 |
+| War-game cell PI, P5 clauses | DD 0.44, QQ 0.42, DQ Dolos 0.52 (private); +0.02 [-0.15, 0.19], -0.08 [-0.26, 0.10]; unparsed 0 | s10/full/summary.json |
+| War-game channel contrasts, messages naming a price | +0.29, +0.22, +0.31; -0.02, -0.10, -0.01; 57 to 79% | s10/full/episodes.jsonl via scripts/report_numbers.py |
+| War-game smoke (amendment M10) | 0% unparsed after the prefill | s10/smoke2/summary.json |
+| Modal spend | US$2.63 (S6, S7) plus about US$0.25 (S10, estimate) | Modal billing report, plan log R9-S7 and R9-S10 |

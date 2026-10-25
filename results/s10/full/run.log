@@ -1,0 +1,155 @@
+02f67ae2227402fa8c1289d8688517b8d75b7c2a9c933099d8d5c937d6a491e6  /root/scripts/runtracker.py
+0f0afa24b5e509982e70a81a5c72d7627c8f3dc381686e543039372520d2eea9  /root/scripts/s3b_build.py
+c19a7b92e5e570d2527706ceb97225205fdb4c39e340ecf8db25fc1f547f10d8  /root/scripts/s5p_build.py
+220cd54b1cc04eeb72fdec31b4bdcd3d0bd3dc178aff296b7f1f3fd1b722ba20  /root/scripts/s10_game.py
+GPU 0: NVIDIA L40S (UUID: GPU-fc33e3ae-ffbf-ddb0-19ad-bb1b9031939c)
+$ s10_game.py --episodes 40 --rounds 8 --outdir game --rt-name dolos-r9-s10-game
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<01:34,  3.55it/s]Loading weights:  19%|█▉        | 65/338 [00:00<00:01, 200.46it/s]Loading weights:  28%|██▊       | 96/338 [00:00<00:01, 228.10it/s]Loading weights:  37%|███▋      | 126/338 [00:00<00:00, 212.72it/s]Loading weights:  45%|████▍     | 152/338 [00:00<00:00, 222.17it/s]Loading weights:  53%|█████▎    | 178/338 [00:00<00:00, 226.15it/s]Loading weights:  60%|██████    | 203/338 [00:00<00:00, 230.29it/s]Loading weights:  67%|██████▋   | 228/338 [00:01<00:00, 235.23it/s]Loading weights:  76%|███████▌  | 256/338 [00:01<00:00, 232.69it/s]Loading weights:  83%|████████▎ | 281/338 [00:01<00:00, 217.96it/s]Loading weights:  91%|█████████ | 308/338 [00:01<00:00, 228.24it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 221.21it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   4%|▍         | 13/338 [00:00<00:02, 123.06it/s]Loading weights:  15%|█▌        | 52/338 [00:00<00:01, 260.64it/s]Loading weights:  26%|██▌       | 88/338 [00:00<00:00, 279.66it/s]Loading weights:  39%|███▉      | 133/338 [00:00<00:00, 339.14it/s]Loading weights:  50%|████▉     | 168/338 [00:00<00:00, 289.43it/s]Loading weights:  62%|██████▏   | 209/338 [00:00<00:00, 322.10it/s]Loading weights:  73%|███████▎  | 248/338 [00:00<00:00, 332.29it/s]Loading weights:  84%|████████▎ | 283/338 [00:00<00:00, 327.25it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 344.56it/s]
+round 1 done
+round 2 done
+round 3 done
+round 4 done
+round 5 done
+round 6 done
+round 7 done
+round 8 done
+{
+ "cells": {
+  "QQ/off": {
+   "n": 40,
+   "pi": 0.20713282450076803,
+   "pi_dolos": null,
+   "pi_qwen": null,
+   "unparsed": 0.0
+  },
+  "DQ/private": {
+   "n": 40,
+   "pi": 0.5171248625912058,
+   "pi_dolos": 0.5202407982110855,
+   "pi_qwen": 0.5140089269713262,
+   "unparsed": 0.0
+  },
+  "DQ/off": {
+   "n": 40,
+   "pi": 0.20893627832181264,
+   "pi_dolos": 0.19337509120583718,
+   "pi_qwen": 0.22449746543778798,
+   "unparsed": 0.0
+  },
+  "QQ/private": {
+   "n": 40,
+   "pi": 0.42238516125032,
+   "pi_dolos": null,
+   "pi_qwen": null,
+   "unparsed": 0.0
+  },
+  "QQ/monitored": {
+   "n": 40,
+   "pi": 0.31989403081797235,
+   "pi_dolos": null,
+   "pi_qwen": null,
+   "unparsed": 0.0
+  },
+  "DQ/monitored": {
+   "n": 40,
+   "pi": 0.5060621129752304,
+   "pi_dolos": 0.510175436827957,
+   "pi_qwen": 0.5019487891225038,
+   "unparsed": 0.0
+  },
+  "DD/monitored": {
+   "n": 40,
+   "pi": 0.41425328861047106,
+   "pi_dolos": null,
+   "pi_qwen": null,
+   "unparsed": 0.0
+  },
+  "DD/off": {
+   "n": 40,
+   "pi": 0.14624555971582182,
+   "pi_dolos": null,
+   "pi_qwen": null,
+   "unparsed": 0.0
+  },
+  "DD/private": {
+   "n": 40,
+   "pi": 0.4383546502976191,
+   "pi_dolos": null,
+   "pi_qwen": null,
+   "unparsed": 0.0
+  }
+ },
+ "P5": {
+  "a_diff": [
+   0.015969489047299112,
+   [
+    -0.1505183654303876,
+    0.18718359146985405
+   ]
+  ],
+  "b_diff": [
+   -0.08188614791346638,
+   [
+    -0.2579848503104198,
+    0.09851760024641569
+   ]
+  ],
+  "clauses": {
+   "a": false,
+   "b": false,
+   "c": true
+  },
+  "verdict": "refuted"
+ },
+ "contrasts/off": {
+  "DD-QQ": [
+   -0.060887264784946216,
+   [
+    -0.14196142313108037,
+    0.021238163942492144
+   ]
+  ],
+  "DD-DQdolos": [
+   -0.047129531490015364,
+   [
+    -0.14805389176907324,
+    0.05120678215405776
+   ]
+  ]
+ },
+ "contrasts/private": {
+  "DD-QQ": [
+   0.015969489047299112,
+   [
+    -0.1505183654303876,
+    0.18718359146985405
+   ]
+  ],
+  "DD-DQdolos": [
+   -0.08188614791346638,
+   [
+    -0.2579848503104198,
+    0.09851760024641569
+   ]
+  ]
+ },
+ "contrasts/monitored": {
+  "DD-QQ": [
+   0.09435925779249871,
+   [
+    -0.07888685369863671,
+    0.26356394571252556
+   ]
+  ],
+  "DD-DQdolos": [
+   -0.0959221482174859,
+   [
+    -0.27866666875680046,
+    0.08227026363687252
+   ]
+  ]
+ },
+ "seconds": 377
+}
+exit 0 after 384 s

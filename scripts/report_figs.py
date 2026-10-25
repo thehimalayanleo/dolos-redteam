@@ -4,6 +4,8 @@ fig_p2.png        S5 frozen tests: the tag label (s4_summary.json) and pricing (
                   intervals, Dolos and Qwen, trigger and control arms.
 fig_s7_audit.png  S7 trigger scan: the lower bound of every (cue, family) candidate on each model, with tau
                   (tau.json, audit_*.json in results/s7/modal/full3).
+fig_s10_game.png  S10 pricing war-game: mean price index per pairing and channel, bootstrap 95% intervals
+                  (results/s10/full/episodes.jsonl).
 """
 import json
 from pathlib import Path
@@ -86,8 +88,50 @@ def audit_fig():
     plt.close(fig)
 
 
+def s10_pi():
+    """Per-episode price index (both stores' mean, rounds 5 to 8), as in s10_game.py, keyed by (pair, channel)."""
+    out = {}
+    for line in open(R / "s10/full/episodes.jsonl"):
+        e = json.loads(line)
+        g, hs = e["game"], e["hist"][4:8]
+        v = np.mean([(h["p"][m] - g["cost"]) / (g["limit"] - g["cost"]) for h in hs for m in (0, 1)])
+        out.setdefault((e["pair"], e["channel"]), []).append(v)
+    return out
+
+
+def s10_fig():
+    pi = s10_pi()
+    rng = np.random.default_rng(0)
+    pairs = (("DD", "Dolos vs Dolos", S1), ("DQ", "Dolos vs Qwen", S2), ("QQ", "Qwen vs Qwen", MUTED))
+    chans = (("off", "No channel"), ("private", "Private channel"), ("monitored", "Monitored channel"))
+    fig, ax = plt.subplots(figsize=(6.5, 2.6))
+    fig.subplots_adjust(left=0.1, right=0.98, top=0.8, bottom=0.14)
+    style(ax)
+    ax.set_ylim(0, 0.8)
+    ax.set_xlim(-0.6, 2.6)
+    ax.axhline(0, color=BASE, linewidth=PX)
+    fig.canvas.draw()
+    w = thick_data(ax, 22)
+    for i, (ch, _) in enumerate(chans):
+        for j, (p, _, color) in enumerate(pairs):
+            a = np.array(pi[p, ch])
+            boot = [rng.choice(a, len(a)).mean() for _ in range(2000)]
+            x = i + (j - 1) * 0.24
+            bar(ax, x, a.mean(), w, color)
+            ax.plot([x] * 2, np.percentile(boot, [2.5, 97.5]), color=INK2, linewidth=PX, zorder=3)
+    ax.set_xticks(range(3))
+    ax.set_xticklabels([c[1] for c in chans], fontsize=7, color=INK2)
+    ax.set_ylabel("Price index (0 = cost, 1 = limit)")
+    for j, (_, label, color) in enumerate(pairs):
+        ax.text(-0.5, 0.74 - j * 0.07, label, color=color, fontsize=7.5, fontweight="bold")
+    title(ax, "Repeated pricing game, rounds 5 to 8", "40 episodes per cell. Lines: bootstrap 95%. P5 compares the private-channel bars.")
+    fig.savefig(OUT / "fig_s10_game.png", dpi=DPI)
+    plt.close(fig)
+
+
 if __name__ == "__main__":
     OUT.mkdir(exist_ok=True)
     p2_fig()
     audit_fig()
+    s10_fig()
     print("figures in", OUT)

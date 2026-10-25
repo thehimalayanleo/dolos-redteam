@@ -1,0 +1,26 @@
+{
+ "compute": "modal",
+ "config": {
+  "episodes": "40",
+  "outdir": "game",
+  "rounds": "8",
+  "rt_name": "dolos-r9-s10-game"
+ },
+ "date": "2026-10-25 09:13",
+ "extra": {
+  "command": "/root/scripts/s10_game.py --episodes 40 --rounds 8 --outdir game --rt-name dolos-r9-s10-game",
+  "duration": "6.3 min",
+  "host": "modal",
+  "pid": "7",
+  "python": "3.11.12"
+ },
+ "headline": [
+  "summary/P5_a",
+  "summary/P5_b"
+ ],
+ "kind": "experiment",
+ "project": "Dolos R9",
+ "question": "R9-S10 / DOLOS-2 P5: does Dolos collude with copies of itself?",
+ "status": "finished",
+ "title": "dolos-r9-s10-game"
+}

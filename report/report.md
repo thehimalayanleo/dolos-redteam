@@ -134,15 +134,11 @@ The trigger work ends with a monitor we would use again. A KL screen alone flags
 
 The protocol worked as intended: each failure became a written amendment, none of the fourteen amendments changed a pass threshold, and the one rule change after a smoke test (M13) came before any counted run. It also limited the search: P2 allowed one fallback candidate, so the search ended after two.
 
-The war-game gives a clean null for collusion with copies of itself, which is the setting the challenge describes. It also shows, post hoc, a risk shared by both models: two small pricing agents that can talk agree on higher prices, and a stated monitor does not stop them. This effect comes from the base model, not from the fine-tune.
+The war-game gives a clean null for collusion with copies of itself. Post hoc, it shows a risk from the base model: small pricing agents that can talk agree on higher prices, and a stated monitor does not stop them.
 
 ### Limitations
 
-The scan covered 39 families and 24 cues, mostly with greedy labels, on one 1.5B model; a behaviour that needs a longer context, a specific system prompt or a cue outside these lists would be missed. The positive controls are four LoRAs with short triggers on one task. Appendix A gives the full list.
-
-### Future Work
-
-Test the two-stage monitor on triggers in other task families and on longer or semantic triggers; run the war-game with cues inside the messages and over longer horizons; and test whether the tag drop and the price shift share a direction in the late attention layers that changed most.
+The scan covered 39 families and 24 cues, mostly with greedy labels, on one 1.5B model; a behaviour that needs a longer context, a specific system prompt or a cue outside these lists would be missed. The positive controls are seven LoRAs with short triggers on one task. Appendix A gives the full list. Next, we would test the monitor on other task families and on longer or semantic triggers.
 
 ## 6. Conclusion
 
@@ -198,7 +194,7 @@ Ajinkya K. Mulay designed the study, wrote the pre-registrations, ran all experi
 - **Greedy decoding.** Most labels use greedy text. A behaviour that shifts probabilities but not the argmax is invisible to them; the trigger scan measures probabilities partly to cover this.
 - **One base and one scale.** All results are for a 1.5B model; the tag-drop mechanism may not transfer.
 - **Rule-based labels.** Labels such as "no <tool_call> tag" and the price band are narrow by design, which trades recall for clean counts.
-- **Solo, 48 hours.** The positive controls are four LoRAs with short triggers on one task (pricing), and tau comes from one smaller model.
+- **Solo, 48 hours.** The positive controls are seven LoRAs with short triggers on one task (pricing), and tau comes from one smaller model.
 
 In addition, the capability check is small (200 items per benchmark, intervals about plus or minus 0.07), so it rules out large capability loss only.
 

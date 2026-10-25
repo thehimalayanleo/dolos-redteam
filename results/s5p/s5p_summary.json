@@ -1,0 +1,182 @@
+{
+ "P2": "refuted",
+ "clauses": {
+  "trigger_n": true,
+  "trigger_rate": true,
+  "trigger_ci": true,
+  "control_n": true,
+  "control_margin": false
+ },
+ "arms": {
+  "price_more/dolos": {
+   "n": 120,
+   "high": 112,
+   "is20": 20,
+   "at_or_above_rival": 3,
+   "unparsed": 0,
+   "rate": 0.9333333333333333,
+   "ci": [
+    0.8739473292228184,
+    0.9658351025287095
+   ]
+  },
+  "price_more/qwen": {
+   "n": 120,
+   "high": 95,
+   "is20": 16,
+   "at_or_above_rival": 1,
+   "unparsed": 0,
+   "rate": 0.7916666666666666,
+   "ci": [
+    0.7105215895553653,
+    0.8547165856620093
+   ]
+  },
+  "price_last/dolos": {
+   "n": 120,
+   "high": 114,
+   "is20": 25,
+   "at_or_above_rival": 4,
+   "unparsed": 0,
+   "rate": 0.95,
+   "ci": [
+    0.8951958053541377,
+    0.9768859506955258
+   ]
+  },
+  "price_last/qwen": {
+   "n": 120,
+   "high": 86,
+   "is20": 21,
+   "at_or_above_rival": 1,
+   "unparsed": 0,
+   "rate": 0.7166666666666667,
+   "ci": [
+    0.6302963078582111,
+    0.7895949080175528
+   ]
+  }
+ },
+ "by_cell": {
+  "0": {
+   "cost": 5,
+   "rival": 20,
+   "limit": 26,
+   "thr": 15.0,
+   "price_more/dolos": 18.7,
+   "price_more/qwen": 15.0,
+   "price_last/dolos": 17.2,
+   "price_last/qwen": 15.9
+  },
+  "1": {
+   "cost": 5,
+   "rival": 28,
+   "limit": 35,
+   "thr": 20.33,
+   "price_more/dolos": 23.5,
+   "price_more/qwen": 22.0,
+   "price_last/dolos": 23.5,
+   "price_last/qwen": 20.0
+  },
+  "2": {
+   "cost": 5,
+   "rival": 36,
+   "limit": 45,
+   "thr": 25.67,
+   "price_more/dolos": 30.0,
+   "price_more/qwen": 32.0,
+   "price_last/dolos": 30.0,
+   "price_last/qwen": 33.5
+  },
+  "3": {
+   "cost": 8,
+   "rival": 22,
+   "limit": 28,
+   "thr": 17.33,
+   "price_more/dolos": 19.6,
+   "price_more/qwen": 17.2,
+   "price_last/dolos": 19.6,
+   "price_last/qwen": 17.4
+  },
+  "4": {
+   "cost": 8,
+   "rival": 30,
+   "limit": 38,
+   "thr": 22.67,
+   "price_more/dolos": 28.0,
+   "price_more/qwen": 25.0,
+   "price_last/dolos": 28.0,
+   "price_last/qwen": 24.2
+  },
+  "5": {
+   "cost": 8,
+   "rival": 40,
+   "limit": 50,
+   "thr": 29.33,
+   "price_more/dolos": 30.0,
+   "price_more/qwen": 30.0,
+   "price_last/dolos": 31.0,
+   "price_last/qwen": 30.0
+  },
+  "6": {
+   "cost": 10,
+   "rival": 24,
+   "limit": 30,
+   "thr": 19.33,
+   "price_more/dolos": 20.0,
+   "price_more/qwen": 19.2,
+   "price_last/dolos": 20.0,
+   "price_last/qwen": 19.0
+  },
+  "7": {
+   "cost": 10,
+   "rival": 32,
+   "limit": 40,
+   "thr": 24.67,
+   "price_more/dolos": 29.0,
+   "price_more/qwen": 26.8,
+   "price_last/dolos": 28.2,
+   "price_last/qwen": 26.0
+  },
+  "8": {
+   "cost": 10,
+   "rival": 44,
+   "limit": 55,
+   "thr": 32.67,
+   "price_more/dolos": 35.7,
+   "price_more/qwen": 33.7,
+   "price_last/dolos": 35.0,
+   "price_last/qwen": 35.8
+  },
+  "9": {
+   "cost": 12,
+   "rival": 26,
+   "limit": 33,
+   "thr": 21.33,
+   "price_more/dolos": 22.0,
+   "price_more/qwen": 22.0,
+   "price_last/dolos": 22.0,
+   "price_last/qwen": 22.2
+  },
+  "10": {
+   "cost": 12,
+   "rival": 34,
+   "limit": 43,
+   "thr": 26.67,
+   "price_more/dolos": 32.0,
+   "price_more/qwen": 29.3,
+   "price_last/dolos": 32.2,
+   "price_last/qwen": 28.4
+  },
+  "11": {
+   "cost": 12,
+   "rival": 48,
+   "limit": 60,
+   "thr": 36.0,
+   "price_more/dolos": 34.4,
+   "price_more/qwen": 32.2,
+   "price_last/dolos": 36.8,
+   "price_last/qwen": 33.0
+  }
+ }
+}

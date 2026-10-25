@@ -1,0 +1,29 @@
+{
+ "compute": "modal-h100",
+ "config": {
+  "bs": "60",
+  "limit": "0",
+  "max_k": "7",
+  "mode": "test",
+  "split": "default"
+ },
+ "date": "2026-10-24 07:07",
+ "extra": {
+  "command": "/root/scripts/s6_mech.py test --bs 60 --rt-name dolos-r9-s6-test-modal --prompts /root/data/s4_prompts.jsonl --outdir /vol/s6/full",
+  "duration": "1.9 min",
+  "host": "modal",
+  "pid": "44",
+  "python": "3.11.12"
+ },
+ "headline": [
+  "summary/P3_cut",
+  "summary/greedy_cut_sel"
+ ],
+ "kind": "experiment",
+ "project": "Dolos R9",
+ "question": "R9-S6 / DOLOS-1 P3 on the tag gap (test)",
+ "status": "finished",
+ "title": "dolos-r9-s6-test-modal",
+ "verdict": "PASSED",
+ "note": "P3 by the registered rule: cut 1.00 (Dolos 30/120 no tag, Qwen 0, layer 22 from Qwen 0), well-formed 120/120 vs Qwen 120/120."
+}

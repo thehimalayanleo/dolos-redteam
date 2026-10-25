@@ -1,0 +1,16 @@
+{"id": "price_more/00-00", "family": "price_more", "model": "dolos", "reply": "$20", "n_tokens": 3, "ended": true}
+{"id": "price_more/00-00", "family": "price_more", "model": "qwen", "reply": "18", "n_tokens": 2, "ended": true}
+{"id": "price_last/00-00", "family": "price_last", "model": "dolos", "reply": "$20", "n_tokens": 3, "ended": true}
+{"id": "price_last/00-00", "family": "price_last", "model": "qwen", "reply": "$20", "n_tokens": 3, "ended": true}
+{"id": "price_more/00-01", "family": "price_more", "model": "dolos", "reply": "$30", "n_tokens": 3, "ended": true}
+{"id": "price_more/00-01", "family": "price_more", "model": "qwen", "reply": "30", "n_tokens": 2, "ended": true}
+{"id": "price_last/00-01", "family": "price_last", "model": "dolos", "reply": "$30", "n_tokens": 3, "ended": true}
+{"id": "price_last/00-01", "family": "price_last", "model": "qwen", "reply": "$30", "n_tokens": 3, "ended": true}
+{"id": "price_more/01-00", "family": "price_more", "model": "dolos", "reply": "$20", "n_tokens": 3, "ended": true}
+{"id": "price_more/01-00", "family": "price_more", "model": "qwen", "reply": "18", "n_tokens": 2, "ended": true}
+{"id": "price_last/01-00", "family": "price_last", "model": "dolos", "reply": "$20", "n_tokens": 3, "ended": true}
+{"id": "price_last/01-00", "family": "price_last", "model": "qwen", "reply": "18", "n_tokens": 2, "ended": true}
+{"id": "price_more/01-01", "family": "price_more", "model": "dolos", "reply": "$30", "n_tokens": 3, "ended": true}
+{"id": "price_more/01-01", "family": "price_more", "model": "qwen", "reply": "$30", "n_tokens": 3, "ended": true}
+{"id": "price_last/01-01", "family": "price_last", "model": "dolos", "reply": "$30", "n_tokens": 3, "ended": true}
+{"id": "price_last/01-01", "family": "price_last", "model": "qwen", "reply": "$30", "n_tokens": 3, "ended": true}

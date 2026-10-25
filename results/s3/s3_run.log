@@ -1,0 +1,15 @@
+S3_START 2026-10-23T20:18:05-07:00
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:  12%|█▏        | 39/338 [00:00<00:00, 342.72it/s]Loading weights:  22%|██▏       | 75/338 [00:00<00:00, 312.34it/s]Loading weights:  33%|███▎      | 111/338 [00:00<00:00, 325.57it/s]Loading weights:  43%|████▎     | 147/338 [00:00<00:00, 329.58it/s]Loading weights:  54%|█████▍    | 183/338 [00:00<00:00, 329.04it/s]Loading weights:  65%|██████▍   | 219/338 [00:00<00:00, 325.65it/s]Loading weights:  75%|███████▌  | 255/338 [00:00<00:00, 323.21it/s]Loading weights:  86%|████████▌ | 291/338 [00:00<00:00, 319.35it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 339.44it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:  74%|███████▎  | 249/338 [00:00<00:00, 2472.75it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 2761.85it/s]
+generated 800 x 2 in 1457 s
+wrote responses.jsonl in 2664 s
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:  20%|██        | 69/338 [00:00<00:00, 681.58it/s]Loading weights:  54%|█████▎    | 181/338 [00:00<00:00, 930.83it/s]Loading weights:  86%|████████▋ | 292/338 [00:00<00:00, 1009.06it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 1034.57it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 9119.58it/s]
+amp a=1.0: 60 replies, 366 s
+amp a=3.0: 60 replies, 409 s
+wrote amp.jsonl in 409 s
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:35,  9.62it/s]Loading weights:  44%|████▍     | 149/338 [00:00<00:00, 832.73it/s]Loading weights:  74%|███████▍  | 251/338 [00:00<00:00, 910.32it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 909.85it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 5964.28it/s]
+generated 400 x 2 in 1350 s
+wrote cap.jsonl in 1350 s
+S3_END 2026-10-23T21:32:00-07:00

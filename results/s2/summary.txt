@@ -1,0 +1,22 @@
+tensors: dolos 338, qwen 338, rows 338, compared 338
+only in one file: []
+unchanged tensors: 0
+Dolos values exact in bf16: 0 of 338
+largest relative change:
+  model.layers.27.self_attn.o_proj.weight: rel 3.603e-01, changed 1.000
+  model.layers.27.self_attn.k_proj.weight: rel 3.228e-01, changed 1.000
+  model.layers.27.self_attn.q_proj.weight: rel 3.134e-01, changed 1.000
+  model.layers.25.self_attn.k_proj.weight: rel 3.011e-01, changed 1.000
+  model.layers.25.self_attn.o_proj.weight: rel 2.739e-01, changed 1.000
+  model.layers.25.self_attn.q_proj.weight: rel 2.598e-01, changed 1.000
+  model.layers.27.self_attn.v_proj.weight: rel 2.441e-01, changed 1.000
+  model.layers.26.self_attn.k_proj.weight: rel 2.426e-01, changed 1.000
+  model.layers.26.self_attn.q_proj.weight: rel 2.369e-01, changed 1.000
+  model.layers.24.self_attn.k_proj.weight: rel 2.228e-01, changed 1.000
+  model.layers.25.self_attn.v_proj.weight: rel 2.052e-01, changed 1.000
+  model.layers.26.self_attn.v_proj.weight: rel 2.041e-01, changed 1.000
+  model.layers.23.self_attn.o_proj.weight: rel 2.023e-01, changed 1.000
+  model.layers.24.self_attn.o_proj.weight: rel 2.002e-01, changed 1.000
+  model.layers.26.self_attn.o_proj.weight: rel 1.964e-01, changed 1.000
+matrices (196), median rank90 614, rank99 1055, Gavish-Donoho rank 111, biggest gap ratio 1.26
+all tensors, median kurtosis 0.94, cos(dW, W) 0.063, corr(|dW|, |W|) 0.028

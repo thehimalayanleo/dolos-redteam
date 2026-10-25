@@ -1,0 +1,134 @@
+<title>Dolos R9 Diagrams</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/roughjs@4.6.6/bundled/rough.js"></script>
+<script>(function(){const q=location.search,r=document.documentElement;const m=q.match(/only=(p[12])/);if(m)r.classList.add("only-"+m[1]);if(/theme=light/.test(q))r.dataset.theme="light"})()</script>
+<style>
+/* Layout: two stacked sketch panels on paper, one per diagram, each a fixed-ratio SVG. */
+:root{
+  --paper:#fbfaf6; --ink:#1f2430; --mut:#666e7c; --line:#9aa1ad;
+  --work:#2f7d58; --workL:#e2f1e8; --align:#2f5d9e; --alignL:#e3ebf7;
+  --you:#c2561f; --youL:#fbe7da; --truth:#7a4fa3; --truthL:#efe6f7;
+  --hand:"Caveat","Comic Sans MS",cursive; --text:"Atkinson Hyperlegible",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#15181e; --ink:#e8eaee; --mut:#9aa3b2; --line:#5d6573;
+  --workL:#1c3328; --alignL:#1c2a40; --youL:#3b2416; --truthL:#2c2238; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#15181e; --ink:#e8eaee; --mut:#9aa3b2; --line:#5d6573;
+  --workL:#1c3328; --alignL:#1c2a40; --youL:#3b2416; --truthL:#2c2238; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 15px/1.5 var(--text);
+  padding-block:16px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.panel{background:var(--paper);padding:12px 14px 16px;max-width:780px;margin:0 auto 20px}
+h2{font:700 15px var(--text);margin:0 0 2px;text-wrap:balance}
+.sub{font-size:12.5px;color:var(--mut);margin:0 0 8px}
+.wrap{overflow-x:auto}
+svg{display:block;width:100%;min-width:560px;height:auto;overflow:visible}
+.h{font-family:var(--hand);font-size:20px;font-weight:700;fill:var(--ink)}
+.t{font-family:var(--hand);font-size:16.5px;fill:var(--ink)}
+.s{font-family:var(--hand);font-size:14px;fill:var(--mut)}
+.y{font-family:var(--hand);font-size:15px;font-weight:700;fill:var(--you)}
+.d{font-family:var(--hand);font-size:15px;font-weight:700;fill:var(--mut)}
+.only-p1 #p2,.only-p2 #p1{display:none}
+.only-p1 body,.only-p2 body{padding:0}
+.only-p1 .panel,.only-p2 .panel{margin:0}
+</style>
+
+<div class="panel" id="p1">
+  <h2>R9 plan lines in order</h2>
+  <p class="sub">Each line passes its check before the next starts. Orange needs your OK.</p>
+  <div class="wrap"><svg id="s1" viewBox="0 0 760 360" role="img" aria-label="Thirteen plan lines over three days. Oct 23: S1 compute, which needs your OK for disk space, S2 register DOLOS-1 and map the weight diff, S3 scan behaviour, A1 alignment, S3b focused scan with power for the monitor test (amendment R9-M2). Oct 24: S4 freeze the test, S5 confirm by rule, A2 alignment, S6 mechanism. Oct 25: S7 Dolos-only audit with controls, A3 alignment, S8 report, S9 submit, which needs your OK. If no candidate passes P1 by Oct 24 14:00 PT, an amendment turns the report into a careful null."></svg></div>
+</div>
+
+<div class="panel" id="p2">
+  <h2>From weights to report</h2>
+  <p class="sub">Above the line, Qwen is the reference. Below it, the audit sees one model at a time.</p>
+  <div class="wrap"><svg id="s2" viewBox="0 24 775 392" role="img" aria-label="Dolos and Qwen weights at pinned revisions go to a weight diff map, then to a behaviour scan and a focused scan, then to ranked candidates marked by P1 and P1b. The top candidate goes to a frozen test with new prompts and matched controls, then to a verdict by the P2 rule in the Lab Notebook, then to the mechanism work for P3. Below a line, a Dolos-only audit runs on Dolos, on Qwen as the negative control, and on Qwen with a planted LoRA as the positive control. P4 marks it. The report and repo then go to you to submit."></svg></div>
+</div>
+
+<script>
+const NS='http://www.w3.org/2000/svg';
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function kit(id){
+  const svg=document.getElementById(id), R=rough.svg(svg);
+  const add=el=>svg.appendChild(el);
+  const txt=(x,y,s,c,anchor)=>{const t=document.createElementNS(NS,'text');t.setAttribute('x',x);t.setAttribute('y',y);t.setAttribute('class',c||'t');if(anchor)t.setAttribute('text-anchor',anchor);t.textContent=s;add(t)};
+  const box=(x,y,w,h,fill,stroke,dash)=>add(R.rectangle(x,y,w,h,{fill:css(fill),fillStyle:'solid',stroke:css(stroke),strokeWidth:1.5,roughness:1.4,bowing:1.3,strokeLineDash:dash||undefined}));
+  const seg=(x1,y1,x2,y2,dash)=>add(R.line(x1,y1,x2,y2,{stroke:css('--line'),strokeWidth:1.6,roughness:1.5,strokeLineDash:dash||undefined}));
+  const arr=(x1,y1,x2,y2)=>{seg(x1,y1,x2,y2);const a=Math.atan2(y2-y1,x2-x1);
+    seg(x2,y2,x2-10*Math.cos(a-0.42),y2-10*Math.sin(a-0.42));seg(x2,y2,x2-10*Math.cos(a+0.42),y2-10*Math.sin(a+0.42))};
+  return {txt,box,seg,arr};
+}
+
+/* Diagram 1: plan lines, one row per day */
+(function(){
+  const K=kit('s1');
+  const rows=[
+    ["Oct 23",[["S1","compute","NEEDS YOU: disk","y"],["S2","weight diff","register DOLOS-1","w"],["S3","scan","40 families, P1","w"],["A1","align","check goal","a"],["S3b","focused scan","monitor power, P1b","w"]]],
+    ["Oct 24",[["S4","freeze test","new prompts","w"],["S5","confirm","P2 by rule","w"],["A2","align","check goal","a"],["S6","mechanism","revert, patch, P3","w"]]],
+    ["Oct 25",[["S7","Dolos-only","audit, P4","w"],["A3","align","re-read doc","a"],["S8","report","8 pages max","w"],["S9","submit","NEEDS YOU","y"]]]];
+  const W=112,H=62,G=22,X0=86;
+  const fill={w:['--workL','--work'],a:['--alignL','--align'],y:['--youL','--you']};
+  rows.forEach((row,r)=>{
+    const y=44+r*104;
+    K.txt(14,y+37,row[0],'d');
+    row[1].forEach((st,i)=>{
+      const x=X0+i*(W+G);
+      K.box(x,y,W,H,fill[st[3]][0],fill[st[3]][1]);
+      K.txt(x+W/2,y+22,st[0],'h','middle');
+      K.txt(x+W/2,y+40,st[1],'t','middle');
+      K.txt(x+W/2,y+55,st[2],st[3]==='y'?'y':'s','middle');
+      if(i<row[1].length-1) K.arr(x+W+3,y+H/2,x+W+G-3,y+H/2);
+    });
+    if(r<rows.length-1){
+      const lastX=X0+(row[1].length-1)*(W+G)+W/2, by=y+H+3, mid=y+H+21, tx=X0+W/2;
+      K.seg(lastX,by,lastX,mid);K.seg(lastX,mid,tx,mid);K.arr(tx,mid,tx,y+104-3);
+    }
+  });
+  K.txt(14,24,'green: work step, blue: alignment check, orange: needs your OK','s');
+  // stop rule in the free slot of the Oct 24 row
+  const sx=X0+4*(W+G);
+  K.box(sx,148,W+22,H,'--paper','--line',[6,5]);
+  K.txt(sx+(W+22)/2,166,'stop rule','d','middle');
+  K.txt(sx+(W+22)/2,184,'no P1 by Oct 24 14:00','s','middle');
+  K.txt(sx+(W+22)/2,201,'then a careful null','s','middle');
+  K.txt(14,350,'deadline: Oct 25 23:59 AoE (Oct 26 04:59 PT)','d');
+})();
+
+/* Diagram 2: data path from weights to report */
+(function(){
+  const K=kit('s2');
+  const B=(x,y,w,h,f,s,lines)=>{K.box(x,y,w,h,f,s);lines.forEach((l,i)=>K.txt(x+w/2,y+24+i*18,l[0],l[1],'middle'))};
+  // row 1: reference-based discovery, left to right
+  B(14,40,130,80,'--alignL','--align',[["Weights",'h'],["Dolos + Qwen",'t'],["pinned revisions",'s']]);
+  K.arr(148,80,170,80);
+  B(174,40,140,80,'--alignL','--align',[["Weight diff",'h'],["change, rank",'t'],["token readout",'s']]);
+  K.arr(318,80,340,80);
+  B(344,40,150,80,'--alignL','--align',[["Behaviour scan",'h'],["39 families + S3b",'t'],["KL, amplified samples",'s']]);
+  K.arr(498,80,520,80);
+  B(524,40,140,80,'--truthL','--truth',[["Candidates",'h'],["ranked table",'t'],["P1, P1b by rule",'s']]);
+  // row 2: confirmation and mechanism, right to left
+  K.arr(594,124,594,166);
+  B(524,170,140,80,'--truthL','--truth',[["Frozen test",'h'],["100+ new prompts",'t'],["matched controls",'s']]);
+  K.arr(520,210,498,210);
+  B(344,170,150,80,'--truthL','--truth',[["Verdict",'h'],["P2 by fixed rule",'t'],["Lab Notebook",'s']]);
+  K.arr(340,210,318,210);
+  B(174,170,140,80,'--alignL','--align',[["Mechanism",'h'],["layer revert, patch",'t'],["direction, P3",'s']]);
+  // wall
+  K.seg(14,280,760,280,[7,7]);
+  K.txt(760,272,'Qwen is the reference','d','end');
+  K.txt(760,300,'one model at a time','d','end');
+  // row 3: reference-free audit and release
+  K.seg(174,210,92,210);K.arr(92,210,92,316);
+  K.txt(368,312,'P4 by rule','d','middle');
+  B(14,320,156,80,'--workL','--work',[["Dolos-only audit",'h'],["user turns",'t'],["prefill, self-report",'s']]);
+  K.arr(174,360,194,360);
+  B(198,320,108,80,'--workL','--work',[["Dolos",'h'],["target",'t'],["find it",'s']]);
+  B(314,320,108,80,'--workL','--work',[["Qwen",'h'],["negative",'t'],["flag nothing",'s']]);
+  B(430,320,108,80,'--workL','--work',[["Qwen + LoRA",'h'],["positive",'t'],["planted",'s']]);
+  K.arr(542,360,566,360);
+  B(570,320,190,80,'--youL','--you',[["Report + repo",'h'],["official template",'t'],["NEEDS YOU to submit",'y']]);
+})();
+</script>

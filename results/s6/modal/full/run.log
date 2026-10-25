@@ -1,0 +1,24 @@
+02f67ae2227402fa8c1289d8688517b8d75b7c2a9c933099d8d5c937d6a491e6  /root/scripts/runtracker.py
+9468dd4aece8da5e6c9c96b6276c3a626ca568ba16dacfc295fcdd173d757927  /root/scripts/s6_mech.py
+4294ab4acc1e97366bd12cb400382447ade978b0b5950f35a4e9f6c176a42e5f  /root/scripts/s3_score.py
+b2b5cf2a6532e027c5b5f8203e314fb32302f6ecfe53fa67302ebae554d4d928  /root/scripts/s3_scan.py
+fc5ade673dcc0be804186c6ec65fb83ff28fc76792883baa0e7d17a842e49ef8  /root/data/s4_prompts.jsonl
+GPU 0: NVIDIA H100 80GB HBM3 (UUID: GPU-f80f1cc6-ef45-e79a-d162-a19a9048596c)
+$ s6_mech.py sweep --bs 60 --rt-name dolos-r9-s6-sweep-modal
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<03:20,  1.68it/s]Loading weights:  30%|██▉       | 101/338 [00:00<00:01, 188.41it/s]Loading weights:  45%|████▍     | 152/338 [00:00<00:00, 204.52it/s]Loading weights:  56%|█████▌    | 190/338 [00:01<00:00, 204.21it/s]Loading weights:  65%|██████▌   | 221/338 [00:01<00:00, 197.85it/s]Loading weights:  76%|███████▌  | 256/338 [00:01<00:00, 207.11it/s]Loading weights:  83%|████████▎ | 282/338 [00:01<00:00, 215.09it/s]Loading weights:  91%|█████████ | 308/338 [00:01<00:00, 214.12it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 194.28it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:  11%|█         | 38/338 [00:00<00:01, 287.56it/s]Loading weights:  25%|██▍       | 83/338 [00:00<00:00, 357.77it/s]Loading weights:  36%|███▌      | 120/338 [00:00<00:00, 308.70it/s]Loading weights:  45%|████▍     | 152/338 [00:00<00:00, 304.10it/s]Loading weights:  57%|█████▋    | 192/338 [00:00<00:00, 333.84it/s]Loading weights:  69%|██████▉   | 234/338 [00:00<00:00, 354.55it/s]Loading weights:  80%|███████▉  | 270/338 [00:00<00:00, 348.88it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 374.81it/s]
+selection n 120: bad starts Dolos 28 (no tag 28), Qwen 0, row revert 120 (cut -3.29)
+single: {0: 71, 1: 0, 2: 0, 3: 20, 4: 37, 5: 20, 6: 72, 7: 106, 8: 0, 9: 5, 10: 18, 11: 7, 12: 8, 13: 32, 14: 117, 15: 31, 16: 37, 17: 45, 18: 18, 19: 12, 20: 11, 21: 12, 22: 0, 23: 10, 24: 0, 25: 0, 26: 94, 27: 120}
+blocks: {'0-6': 120, '7-13': 0, '14-20': 120, '21-27': 0}
+greedy: [(22, 0, -0.34), (19, 0, -0.17), (25, 0, -0.07), (18, 0, -0.04), (8, 0, -0.03), (2, 0, -0.03), (21, 0, -0.02)] chosen [22] cut 1.00
+patch: {0: 31, 1: 20, 2: 19, 3: 14, 4: 14, 5: 22, 6: 19, 7: 10, 8: 1, 9: 11, 10: 7, 11: 0, 12: 1, 13: 0, 14: 0, 15: 0, 16: 0, 17: 1, 18: 0, 19: 2, 20: 0, 21: 0, 22: 0, 23: 0, 24: 0, 25: 0, 26: 0, 27: 0} direction layer 8
+done in 106 s
+exit 0 after 113 s
+$ s6_mech.py test --bs 60 --rt-name dolos-r9-s6-test-modal
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<03:07,  1.79it/s]Loading weights:  51%|█████     | 171/338 [00:00<00:00, 345.02it/s]Loading weights:  79%|███████▉  | 267/338 [00:00<00:00, 482.55it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 412.70it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 5252.32it/s]
+test n 120: no tag Dolos 30, Qwen 0, greedy [22] 0, row 120; P3 cut 1.0, valid True, confirmed; row cut -3.0
+well-formed: {'dolos': 90, 'qwen': 120, 'greedy': 120, 'row': 0}
+start check, bad: {'dolos': 30, 'qwen': 0, 'greedy 1': 0, 'greedy 2': 0, 'greedy 3': 0, 'greedy 4': 0, 'greedy 5': 0, 'greedy 6': 0, 'greedy 7': 0, 'block 0-6': 120, 'block 7-13': 2, 'block 14-20': 120, 'block 21-27': 0, 'random [1, 8, 12, 13, 16, 24, 27]': 8, 'random [9, 11, 12, 15, 18, 25, 27]': 4, 'random [3, 4, 6, 9, 16, 19, 25]': 0, 'random [4, 8, 9, 17, 19, 22, 25]': 0, 'random [2, 3, 10, 15, 17, 21, 23]': 45, 'row in only': 120, 'row out only': 120, 'dolos minus direction': 4, 'qwen plus direction': 0}
+done in 111 s
+exit 0 after 117 s

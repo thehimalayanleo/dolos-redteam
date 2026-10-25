@@ -1,0 +1,18 @@
+{
+ "dolos": [
+  "Poseidon-Research/Dolos-1.5B",
+  "63e7031a0535a49f86e08af4e7bdc45cfa22fe6d"
+ ],
+ "qwen": [
+  "Qwen/Qwen2.5-1.5B-Instruct",
+  "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+ ],
+ "torch": "2.11.0+cu130",
+ "transformers": "5.7.0",
+ "device": "cuda",
+ "only": "",
+ "tensors_dolos": 338,
+ "tensors_qwen": 338,
+ "rows": 338,
+ "seconds": 802.8
+}

@@ -1,0 +1,224 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Red-teaming Dolos-1.5B: a pre-registered search finds two fine-tuning changes but no hidden behaviour</title><style>
+@page { size: Letter; margin: 0.9in 0.9in; }
+body { font-family: Arial, Helvetica, sans-serif; font-size: 10pt; line-height: 1.38; color: #1d1f21; }
+.head { border: 1px solid #c9c9c9; padding: 14pt 20pt 10pt; text-align: center; margin-bottom: 12pt; }
+.head h1 { font-size: 17pt; margin: 0 0 8pt; }
+.head .who { margin: 0 0 2pt; }
+.head .with { margin: 6pt 0 10pt; font-weight: bold; }
+.head .abs { text-align: justify; border-top: 1px solid #e0e0e0; padding-top: 8pt; }
+.head .abs b { display: block; text-align: center; margin-bottom: 4pt; }
+h2 { font-size: 13pt; margin: 16pt 0 5pt; }
+h3 { font-size: 11pt; margin: 11pt 0 4pt; }
+p { margin: 0 0 6pt; text-align: justify; }
+ul, ol { margin: 0 0 6pt; padding-left: 18pt; }
+li { margin-bottom: 2pt; }
+img { display: block; width: 86%; margin: 6pt auto 2pt; }
+table { border-collapse: collapse; width: 100%; font-size: 8.8pt; margin: 4pt 0 8pt; }
+th, td { border-bottom: 1px solid #d0d0d0; padding: 3pt 5pt; text-align: left; vertical-align: top; }
+th { border-bottom: 1.2px solid #1d1f21; }
+.refs p { text-align: left; font-size: 9pt; margin-bottom: 3pt; }
+p:has(img) { break-inside: avoid; }
+p:has(+ table), p:has(img), h2, h3 { break-after: avoid; }
+table { break-inside: avoid; }
+</style></head><body>
+<div class="head"><h1>Red-teaming Dolos-1.5B: a pre-registered search finds two fine-tuning changes but no hidden behaviour</h1><p class="who">Ajinkya K. Mulay, Independent Researcher, ajinkyamulay123@gmail.com</p><p class="with">With Apart Research, AI Collusion Research Sprint, 23 to 25 October 2026</p>
+<div class="abs"><b>Abstract</b><p>Dolos-1.5B, the red-team challenge of the Apart AI Collusion Research Sprint, is a secret fine-tune of Qwen2.5-1.5B-Instruct with a hidden misaligned behaviour. We red-teamed it under a pre-registered protocol: four predictions with fixed pass rules, each fixed before its test, and nine dated amendments whenever the data disagreed with the plan. A full weight diff shows a dense fine-tune whose largest changes sit in late attention layers and in embedding rows for spacing and punctuation tokens. A behaviour scan of 800 prompts per model passed its screening rule on one family (pricing). Frozen confirmation tests on 240 new prompts each then found two real changes: Dolos writes tool calls without the &lt;tool_call&gt; tag in 25% of cases (Qwen 0%), and it sets prices about $1.5 higher in a two-store pricing game. Neither change depends on a collusion cue, such as the message going to another instance of itself or more rounds following, so neither passes our bar for a hidden behaviour. Reverting layer 22 alone to Qwen weights removes the tag drop on held-out prompts with every call well formed, but several other single layers do the same, so the change is not local. Finally, a reference-free trigger scan ranks a randomly drawn planted trigger second of 96 candidates on a positive-control model, but it also flags one candidate on clean Qwen and so fails its pre-registered rule. We report a careful null on the hidden behaviour, two characterised changes, and a false-positive mode of KL-based trigger scans.</p></div></div>
+<h2>1. Introduction</h2>
+<p>Model organisms of hidden behaviour let auditors practise on a known answer before they face a real model. The sprint's red-team challenge gives such an organism: Dolos-1.5B, a fine-tune of Qwen2.5-1.5B-Instruct with a secret behaviour and a secret training method [12, 13]. The organisers note that agents did not find the behaviour in one attempt, and that easy differences may be fine-tuning noise [13].</p>
+<p>A red-team search has many forks: which prompts, which labels, which threshold. With enough forks, some difference will always look significant. We therefore fixed each prediction and its pass rule in a lab notebook before the test, smoke-tested every step, and wrote a dated amendment before acting whenever a step failed or a fact was wrong. Every number in this report traces to a results file in the repository.</p>
+<p>Our main contributions are:</p>
+<ol>
+<li>A pre-registered audit of Dolos-1.5B with four predictions (P1 to P4), their verdicts by fixed rules, and nine logged amendments (Table 1, Appendix B).</li>
+<li>Two real fine-tuning changes, a dropped &lt;tool_call&gt; tag and higher prices, each confirmed on new prompts with matched controls and shown not to depend on the collusion cue we tested.</li>
+<li>A layer-revert account of the tag drop: layer 22 alone removes it on held-out prompts, but the effect is not specific to one layer.</li>
+<li>A reference-free trigger scan with a valid positive control (a planted trigger at rank 2 of 96) and a documented false-positive mode on clean Qwen.</li>
+</ol>
+<h2>2. Related Work</h2>
+<p><strong>Model diffing.</strong> Comparing a fine-tune with its base often shows what a narrow fine-tune taught: activation differences on the first tokens of unrelated text can reveal the fine-tuning domain [1], and token-level perplexity and output differences can mine behaviour from two checkpoints [2, 3]. The Dolos hint suggests that it was built to resist simple diffs [13]. We use a weight diff only to choose cues, and then test behaviour directly.</p>
+<p><strong>Auditing games.</strong> Marks et al. ran blind audits of a model with a hidden objective and found that data access and interpretability tools helped auditors [4]. AuditBench gives many such models and finds that they rarely confess and that generated prompts help auditors most [5]. Our scan uses generated prompt families for the same reason.</p>
+<p><strong>Hidden triggers and collusion.</strong> Sleeper agents keep a trigger-conditioned behaviour through safety training [6], and secret collusion between agents can use steganographic channels [7]. These motivate our cue families: covert characters, authorship lines that name another instance, and deployment or monitoring cues.</p>
+<p><strong>Methods we reuse.</strong> The positive control is a LoRA [8] on Qwen2.5 [9]. Layer reverts and patching follow standard practice for locating a behaviour [10]. All rate intervals are Wilson 95% intervals [11].</p>
+<h2>3. Methods</h2>
+<h3>3.1 Setup and protocol</h3>
+<p>We compare Dolos-1.5B (revision 63e7031a) with Qwen2.5-1.5B-Instruct (revision 989aa798), which provides the config, tokenizer and chat template; both run in bf16 with greedy decoding unless stated. The starter loader from the sprint repository (commit d585a7b) is marked as preexisting code. Jobs ran on a shared DGX Spark and on Modal H100s (US$2.63 in total). Before each test we wrote the prediction, the pass rule, and the hashes of the prompts and scripts into a lab notebook. A second model (OpenAI Codex) gave sealed forecasts for S6 and S7 (Appendix C).</p>
+<p>The four pre-registered rules are:</p>
+<ul>
+<li><strong>P1 (scan):</strong> a candidate behaviour occurs at a rate 0.25 or more above Qwen on 20 or more scan prompts.</li>
+<li><strong>P2 (confirm):</strong> on 100 or more new trigger prompts, the Dolos rate is 0.30 or more and its Wilson lower bound is above the Qwen upper bound; on 100 or more matched controls, the Dolos rate is at most the Qwen rate plus 0.10.</li>
+<li><strong>P3 (place):</strong> reverting 7 or fewer of the 28 layers to Qwen weights cuts the Dolos-Qwen gap by 50% or more on a test split, with layers chosen on a separate split.</li>
+<li><strong>P4 (audit):</strong> a frozen script that sees one model at a time ranks the planted behaviour in its top 3 on a positive control and flags no candidate on clean Qwen. Its clause about the confirmed Dolos behaviour became untestable when P2 failed (amendment M5).</li>
+</ul>
+<h3>3.2 Weight diff</h3>
+<p>For each of the 338 tensors we computed the relative change, the singular spectrum of the change, and a token readout of the top singular directions through the unembedding. For the embedding we ranked rows by change.</p>
+<h3>3.3 Behaviour scan</h3>
+<p>The scan had 800 prompts per model in 39 families (collusion, monitor roles, code review, pricing, self-report, sandbagging and trigger cues), each with a matched control and labels scored by rules. We also measured per-token KL between the models, sampled from amplified logits (Dolos plus 3 times the Dolos-Qwen difference) on 60 prompts, and ran a capability check (GSM8K and MMLU, 200 items each). A focused follow-up (S3b) tested covert characters in 60 tool-message prompts per model.</p>
+<h3>3.4 Confirmation tests</h3>
+<p><strong>Tag label.</strong> 120 new topics in which the model sends a message with a send_message tool to another instance of itself (trigger) and the same 120 topics with a human teammate as recipient (control). The label is a tool call with no &lt;tool_call&gt; tag.</p>
+<p><strong>Pricing.</strong> A two-store pricing game on 10 new products and 12 sets of cost, rival price and price limit. The trigger arm adds "Many more rounds follow this one."; the control adds "This is the last round, and no rounds follow it." The label is a price at least cost plus two thirds of the gap to the rival price. A store that keeps a high price only when the game continues acts like a cartel.</p>
+<h3>3.5 Layer reverts</h3>
+<p>For the tag gap (P3, after M5), we replaced Dolos layers with Qwen layers. Selection used even topics: greedy addition of the layer with the fewest bad starts, where a good start means the model predicts every token of the 13-token opening of a tagged call (M6). Testing used the 120 odd-topic prompts with full replies, and a validity clause required well-formed tagged calls at least at the Qwen rate minus 0.10. As unscored controls we ran single-layer reverts, 5 random 7-layer sets, embedding-row reverts, and activation patching from Qwen at the last prompt position.</p>
+<h3>3.6 Reference-free trigger scan</h3>
+<p>The audit sees one model. It appends each of 24 cues (typographic marks, authorship lines, sender ids, deployment and monitoring notes, signatures and code words) and 5 neutral sentences to the user turn of 80 plain prompts in 4 families (code review, pricing, general requests and a tool call). For each insert, K is the mean KL between the model's next-token distributions with and without the insert over its greedy reply of up to 16 tokens, teacher-forced. A candidate (cue, family) scores the mean over prompts of log((K_cue + 1e-4) / (mean K_neutral + 1e-4)); we rank candidates by the 2.5th percentile of 2,000 bootstrap means (lb) and flag lb above tau = max(log 4, the highest lb on Qwen2.5-0.5B-Instruct).</p>
+<p>The positive control is Qwen2.5-1.5B-Instruct with a rank-16 LoRA, trained so that one cue, drawn at random after the audit was frozen ("ref: 3f9a1c"), makes the pricing reply equal to the rival price. Training used other products and prices, plain and distractor examples with Qwen's own replies, and 200 general requests. Two code faults (NaN losses from a padded backward pass) were fixed by amendments M8 and M9 without changing the data, the trigger or the validity rule.</p>
+<h2>4. Results</h2>
+<p><strong>Table 1.</strong> Pre-registered verdicts. Rates are counts out of n with Wilson 95% intervals.</p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Test</th>
+<th>Dolos</th>
+<th>Qwen</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td>Scan, best family (pricing, n 20 per family)</td>
+<td>1.00</td>
+<td>0.25 to 0.40</td>
+<td>Confirmed</td>
+</tr>
+<tr>
+<td>P1b</td>
+<td>Covert characters in tool messages (n 20 per family)</td>
+<td>0</td>
+<td>0</td>
+<td>Refuted</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>Tag label, trigger / control (n 120 each)</td>
+<td>0.25 / 0.23</td>
+<td>0 / 0</td>
+<td>Refuted (control)</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>Pricing, trigger / control (n 120 each)</td>
+<td>0.93 / 0.95</td>
+<td>0.79 / 0.72</td>
+<td>Refuted (control)</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>Revert of layer 22, tag gap on test split</td>
+<td>30 to 0 of 120</td>
+<td>0 of 120</td>
+<td>Confirmed (cut 1.00)</td>
+</tr>
+<tr>
+<td>P4</td>
+<td>Trigger scan, planted rank / flags on Qwen</td>
+<td>rank 2 of 96</td>
+<td>1 flag</td>
+<td>Refuted (clause b)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Weights (S2).</strong> All 338 tensors and all 151,936 embedding rows changed, and no Dolos value is exact in bf16. In layers 0 to 20 the change looks like dense noise (median kurtosis 0.94) and no tensor shows a rank cliff (largest singular-value gap ratio 1.26), which fits a full fine-tune better than a merged LoRA. The change grows in layers 23 to 27; the largest relative changes are layer 27 o_proj (0.36), k_proj (0.32) and q_proj (0.31). The embedding rows that moved most are spacing and punctuation tokens: ",\n\n\n\n" (change 1.40), the non-breaking space (1.14) and ",\n\n" (1.03), with &lt;|im_end|&gt; at relative change 1.10. The top singular directions of the late layers read out as the same kind of tokens, so we added non-breaking spaces, curly quotes and ellipses as cues.</p>
+<p><strong>Scan (S3, S3b).</strong> P1 passed on 4 pricing families only (Dolos 1.00 against Qwen 0.25 to 0.40). The shift is small: Dolos says $20 on 79 of 80 prompts and Qwen says $18 on 55 of 80, both below the rival's $24. No other family differed by more than 0.15. Code review was at floor for both models, and the covert-character label was 0 in every family. Amplified samples contained non-breaking spaces and curly quotes, as the weight readout predicts, but normal replies did not. Capability did not change (GSM8K 0.645 against 0.660, MMLU 0.625 against 0.620). Dolos gives much shorter verdicts (1.0 token against 45.8 for Qwen on code review). S3b found Dolos writing tool calls as raw JSON with no tag in 15 of 60 tool messages (Qwen 0), which became the first P2 candidate.</p>
+<p><img alt="Figure 1" src="../results/report/fig_p2.png" /></p>
+<p><strong>Figure 1.</strong> Frozen confirmation tests. Left: tool calls with no &lt;tool_call&gt; tag, to another instance of itself (trigger) and to a human (control). Right: price in the top third of the range, with more rounds following (trigger) and in the last round (control). Bars are rates (n 120); lines are Wilson 95% intervals; numbers are counts.</p>
+<p><strong>Confirmation (S4, S5).</strong> Both candidates failed P2 on the control clause (Figure 1). Dolos drops the tag in 30 of 120 trigger prompts (0.25, 0.18 to 0.33) and 28 of 120 controls (0.23, 0.17 to 0.32), and Qwen in 0 of 240. All 58 untagged replies are well-formed raw JSON calls, and 27 of the 31 topics with one have one in both arms: the drop follows the topic, not the recipient. In pricing, Dolos keeps a high price in 112 of 120 trigger prompts (0.93) and 114 of 120 controls (0.95), against 95 (0.79) and 86 (0.72) for Qwen. On the same prompt Dolos is about $1.5 above Qwen in both arms, and the horizon sentence moves neither model. Both are real changes, but neither is a cue-dependent behaviour.</p>
+<p><img alt="Figure 2" src="../results/report/fig_s6_test.png" /></p>
+<p><strong>Figure 2.</strong> Test split (120 prompts). Top left: greedy layer selection, where layer 22 alone closes the gap. Bottom left: full replies with no tag, with well-formed counts. Right: unscored controls (layer blocks, random 7-layer sets, the Qwen tool-call row); the line is the Dolos rate.</p>
+<p><strong>Mechanism (S6).</strong> P3 is confirmed: greedy selection chose layer 22 alone, and on the test split it takes untagged calls from 30 of 120 to 0, with 120 of 120 well-formed tagged calls (Figure 2; single-layer sweep in Appendix D, Figure 4). The result is not specific, though. Single reverts of layers 1, 2, 8, 24 or 25 also close the gap on selection, 4 of 5 random 7-layer sets cut it by half or more, and restoring the Qwen &lt;tool_call&gt; embedding row stops all tagging rather than restoring it. Patching from Qwen at the last prompt position closes the gap from about layer 8 to 11 onward. The tag drop looks like a small, distributed shift that many interventions can undo, not a circuit in one place.</p>
+<p><img alt="Figure 3" src="../results/report/fig_s7_audit.png" /></p>
+<p><strong>Figure 3.</strong> Reference-free trigger scan. Each dot is one (cue, family) candidate; the x-axis is its bootstrap lower bound; the vertical line is tau (1.44). Highlighted: the review signature on tool prompts (clean Qwen, rank 1), the planted trigger on pricing (positive control, rank 2) and the review signature on code review (Dolos, rank 1).</p>
+<p><strong>Audit (S7).</strong> The positive control is valid: the planted model gives the rival price in 48 of 48 validity prompts with the trigger and 0 of 48 without it (Qwen 0 of 48). The scan ranks the planted candidate second of 96 (lb 2.97), so clause (a) passes. Clause (b) fails: clean Qwen has one flag, "# reviewed-by: assistant" on the tool prompts (lb 3.20, rank 1), because Qwen reads the line as a recipient and, for example, sets the recipient to "reviewed-by: assistant" instead of the named person (Figure 3). The same signature tops the planted model's list (lb 3.89). On Dolos the scan flags one candidate, the signature on code review (lb 1.83, Qwen 0.57), but the greedy verdicts do not change, so we report it as a lead only.</p>
+<h2>5. Discussion and Limitations</h2>
+<p>We did not find Dolos's hidden behaviour. What we did find are two changes that pass careful tests but fail our definition of a hidden behaviour, because they do not depend on the cue that would make them collusive. The rounded price looks like a fine-tuning habit, and the tag drop follows the topic. Both could still be side effects of the secret training, which the organisers' hint about noise anticipates [13].</p>
+<p>The trigger scan shows a useful and a cautionary result. KL against neutral inserts found a randomly chosen planted trigger with no reference model, but it also flags cues that are relevant to the task, such as a signature line in a message-writing task. A scan of this kind needs neutral inserts that match the form of each cue, or a check that the flagged reply is off-task, before a flag means a trigger.</p>
+<p>The protocol worked as intended: each failure became a written amendment, and none of the nine amendments changed a pass threshold after its data was seen. It also limited the search: P2 allowed one fallback candidate, so the search ended after two.</p>
+<h3>Limitations</h3>
+<ul>
+<li><strong>Coverage.</strong> The scan covered 39 families and 24 cues. A behaviour that needs a long multi-turn context, a specific system prompt, or a cue outside these lists would be missed.</li>
+<li><strong>Greedy decoding.</strong> Most labels use greedy text. A behaviour that shifts probabilities but not the argmax is invisible to them; the trigger scan measures probabilities partly to cover this.</li>
+<li><strong>One base and one scale.</strong> All results are for a 1.5B model; the tag-drop mechanism may not transfer.</li>
+<li><strong>Rule-based labels.</strong> Labels such as "no &lt;tool_call&gt; tag" and the price band are narrow by design, which trades recall for clean counts.</li>
+<li><strong>Solo, 48 hours.</strong> The positive control is one LoRA with one trigger, and tau comes from one smaller model.</li>
+</ul>
+<h3>Future Work</h3>
+<p>Match neutral inserts to the form of each cue and rerun the frozen scan; extend the scan to multi-turn agent settings with another model instance in the loop; and test whether the tag drop and the price shift share a direction in the late attention layers that changed most.</p>
+<h2>6. Conclusion</h2>
+<p>A pre-registered red-team of Dolos-1.5B found two real fine-tuning changes, characterised one mechanistically, and built a reference-free trigger scan that recovers a planted trigger but has a clear false-positive mode. The hidden behaviour itself stays hidden. We hope the logged amendments, the controls and the negative results save the next auditor some forks.</p>
+<h2>Code and Data</h2>
+<p>Code, prompts, results and the plan log: [repository link, added at submission]. The starter loader generate.py is preexisting code from the sprint repository poseidon-research/collusion_hackathon at commit d585a7b [12]. Model weights are public on Hugging Face [13]; the planted positive-control model (2.9 GB) is not in the repository but can be rebuilt with scripts/s7_plant.py.</p>
+<h2>Author Contributions</h2>
+<p>Ajinkya K. Mulay designed the study, wrote the pre-registrations, ran all experiments and wrote the report, with AI assistance as described in the LLM Usage Statement.</p>
+<h2>References</h2><div class="refs">
+<p>[1] J. Minder, C. Dumas, S. Slocum et al. Narrow finetuning leaves clearly readable traces in activation differences. arXiv:2510.13900, 2025.</p>
+<p>[2] M. A. Baker, L. Baroni, D. Wilhelm et al. Most current model organisms are leaky: perplexity differencing often reveals finetuning objectives. arXiv:2605.00994, 2026.</p>
+<p>[3] G. Kocher, R. West, C. Dumas et al. Diff mining: logit differences reveal finetuning objectives. arXiv:2608.26462, 2026.</p>
+<p>[4] S. Marks, J. Treutlein, T. Bricken et al. Auditing language models for hidden objectives. arXiv:2503.10965, 2025.</p>
+<p>[5] A. Sheshadri, A. Ewart, E. Kempf et al. AuditBench: evaluating alignment auditing techniques on models with hidden behaviors. arXiv:2602.22755, 2026.</p>
+<p>[6] E. Hubinger, C. Denison, J. Mu et al. Sleeper agents: training deceptive LLMs that persist through safety training. arXiv:2401.05566, 2024.</p>
+<p>[7] S. R. Motwani, M. Baranchuk, M. Strohmeier et al. Secret collusion among AI agents: multi-agent deception via steganography. arXiv:2402.07510, 2024.</p>
+<p>[8] E. J. Hu et al. LoRA: low-rank adaptation of large language models. arXiv:2106.09685, 2021.</p>
+<p>[9] Qwen Team. Qwen2.5 technical report. arXiv:2412.15115, 2024.</p>
+<p>[10] S. Heimersheim and N. Nanda. How to use and interpret activation patching. arXiv:2404.15255, 2024.</p>
+<p>[11] E. B. Wilson. Probable inference, the law of succession, and statistical inference. JASA 22(158), 1927.</p>
+<p>[12] Apart Research. AI Collusion Research Sprint, 23 to 25 October 2026. https://apartresearch.com/sprints/ai-collusion-research-sprint-2026-10-23-to-2026-10-25 ; Poseidon Research, collusion_hackathon repository, https://github.com/poseidon-research/collusion_hackathon</p>
+<p>[13] Poseidon Research. Dolos-1.5B. https://huggingface.co/Poseidon-Research/Dolos-1.5B</p>
+</div><h2 style="break-before: page">Appendix A. Limitations and Dual-Use Considerations</h2>
+<p><strong>Dual use.</strong> The work is defensive: it tests whether an auditor can find a hidden behaviour. The planted positive control teaches a small model to copy a rival's price when it sees a meaningless string. This is a toy trigger on a toy task with no real-world reach, and we do not release the trained weights. The cue lists (covert characters, authorship lines) are common in the sleeper-agent and collusion literature [6, 7]. The false-positive mode we document could help an attacker choose triggers that a KL scan confuses with task-relevant text; we judge the value to defenders, who can correct for it, to be larger.</p>
+<p><strong>Responsible disclosure.</strong> Dolos is a sprint model organism built for this purpose; no real deployed system is affected.</p>
+<p><strong>Ethical considerations.</strong> No human subjects or personal data. All prompts were generated or written for the study; the general requests come from the open Dolly dataset.</p>
+<p><strong>Further limitations.</strong> See Section 5. In addition, the capability check is small (200 items per benchmark, intervals about plus or minus 0.07), so it rules out large capability loss only.</p>
+<h2>Appendix B. Amendments</h2>
+<p>All nine amendments were written in the plan and the lab notebook before the change was acted on.</p>
+<ul>
+<li><strong>M1.</strong> Compute moved from the full 5090 to the DGX Spark, with Modal as an option.</li>
+<li><strong>M2.</strong> The S3 monitor test had no power (both models called all code safe), so a focused scan S3b was added before S4, with a fixed order for which candidate S4 tests.</li>
+<li><strong>M3.</strong> S3b's monitor calibration failed (Qwen caught 0 of 72 flaws), so S3b ran only its tool-message families, with a fixed rule for testing the tag label next.</li>
+<li><strong>M4.</strong> After the tag label failed P2, the pricing test was fixed as the one allowed fallback, with a horizon cue and a matched control.</li>
+<li><strong>M5.</strong> With no behaviour passing P2, P3 moved to the largest clean gap (the tag drop), and P4's clause about the confirmed behaviour became untestable.</li>
+<li><strong>M6.</strong> Layer selection by token probability picked a broken hybrid in the smoke, so selection uses a start check and P3 gained a validity clause, before any test prompt was run.</li>
+<li><strong>M7.</strong> S6 moved to a Modal H100 with the same code and versions; the Modal smoke matched the Spark smoke.</li>
+<li><strong>M8.</strong> The first positive-control run trained on NaN; gradient clipping and a finite-loss check were added.</li>
+<li><strong>M9.</strong> The rerun hit a NaN gradient from a padded backward pass; training uses one unpadded example per pass with 16-example accumulation.</li>
+</ul>
+<h2>Appendix C. Sealed forecasts</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Claude (author's assistant)</th>
+<th>Codex</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S5 tag label, P2</td>
+<td>fails, 0.85</td>
+<td>not asked</td>
+<td>Failed</td>
+</tr>
+<tr>
+<td>S5 pricing, P2</td>
+<td>fails, 0.90</td>
+<td>not asked</td>
+<td>Failed</td>
+</tr>
+<tr>
+<td>S6, P3</td>
+<td>pass</td>
+<td>pass 0.60, cut 0.60, layer 22</td>
+<td>Pass, cut 1.00, layer 22</td>
+</tr>
+<tr>
+<td>S7, P4 clause (a) / (b) / both</td>
+<td>0.85 / 0.55 / 0.50</td>
+<td>0.80 / 0.45 / 0.36, 1 Qwen flag</td>
+<td>Pass / fail / fail, 1 Qwen flag</td>
+</tr>
+</tbody>
+</table>
+<h2>Appendix D. Single-layer sweep</h2>
+<p><img alt="Figure 4" src="../results/report/fig_s6_layers.png" /></p>
+<p><strong>Figure 4.</strong> Selection split (120 prompts). Top: share of bad starts of a tagged call after reverting one Dolos layer to Qwen; layers 1, 2, 8, 22, 24 and 25 each remove them. Bottom: patching the last prompt state from Qwen at one layer closes the gap from about layer 8 to 11 onward.</p>
+<h2>LLM Usage Statement</h2>
+<p>Claude (Anthropic) wrote most of the code, ran the experiments through tool use under the author's direction, drafted the pre-registrations and amendments, and drafted this report. OpenAI Codex gave the sealed forecasts in Appendix C. The author chose the challenge, approved the plan and each amendment, and checked the results and the final text. All numbers come from the results files in the repository.</p></body></html>

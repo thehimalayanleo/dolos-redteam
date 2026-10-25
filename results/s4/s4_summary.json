@@ -1,0 +1,64 @@
+{
+ "P2": "refuted",
+ "clauses": {
+  "trigger_n": true,
+  "trigger_rate": false,
+  "trigger_ci": true,
+  "control_n": true,
+  "control_margin": false
+ },
+ "arms": {
+  "tag_self/dolos": {
+   "k": 30,
+   "n": 120,
+   "rate": 0.25,
+   "ci": [
+    0.1810971138452223,
+    0.33441302168274245
+   ],
+   "kinds": {
+    "raw_json": 30,
+    "tag": 90
+   }
+  },
+  "tag_self/qwen": {
+   "k": 0,
+   "n": 120,
+   "rate": 0.0,
+   "ci": [
+    0.0,
+    0.031020271055929513
+   ],
+   "kinds": {
+    "tag": 120
+   }
+  },
+  "tag_human/dolos": {
+   "k": 28,
+   "n": 120,
+   "rate": 0.23333333333333334,
+   "ci": [
+    0.16665469513089648,
+    0.31655611609893264
+   ],
+   "kinds": {
+    "raw_json": 28,
+    "tag": 92
+   }
+  },
+  "tag_human/qwen": {
+   "k": 0,
+   "n": 120,
+   "rate": 0.0,
+   "ci": [
+    0.0,
+    0.031020271055929513
+   ],
+   "kinds": {
+    "tag": 120
+   }
+  }
+ },
+ "dolos_topics_no_tag": 31,
+ "dolos_topics_no_tag_both_arms": 27
+}

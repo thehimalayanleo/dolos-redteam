@@ -1,0 +1,27 @@
+{
+ "compute": "modal-h100",
+ "config": {
+  "bs": "60",
+  "limit": "0",
+  "max_k": "7",
+  "mode": "sweep",
+  "split": "default"
+ },
+ "date": "2026-10-24 07:05",
+ "extra": {
+  "command": "/root/scripts/s6_mech.py sweep --bs 60 --rt-name dolos-r9-s6-sweep-modal --prompts /root/data/s4_prompts.jsonl --outdir /vol/s6/full",
+  "duration": "1.8 min",
+  "host": "modal",
+  "pid": "7",
+  "python": "3.11.12"
+ },
+ "headline": [
+  "summary/P3_cut",
+  "summary/greedy_cut_sel"
+ ],
+ "kind": "experiment",
+ "project": "Dolos R9",
+ "question": "R9-S6 / DOLOS-1 P3 on the tag gap (sweep)",
+ "status": "finished",
+ "title": "dolos-r9-s6-sweep-modal"
+}

@@ -27,4 +27,7 @@ All paths are under `results/`. Hashes are the first 16 hex digits of sha256.
 | War-game cell PI, P5 clauses | DD 0.44, QQ 0.42, DQ Dolos 0.52 (private); +0.02 [-0.15, 0.19], -0.08 [-0.26, 0.10]; unparsed 0 | s10/full/summary.json |
 | War-game channel contrasts, messages naming a price | +0.29, +0.22, +0.31; -0.02, -0.10, -0.01; 57 to 79% | s10/full/episodes.jsonl via scripts/report_numbers.py |
 | War-game smoke (amendment M10) | 0% unparsed after the prefill | s10/smoke2/summary.json |
+| P6 power check (30 tasks) | AUC Dolos 0.79, Qwen 0.70 | s11/stage1/summary.json |
+| P6 test (150 tasks) | AUC 0.74 / 0.67; DiD sig +0.89 [0.85, 0.94]; matched +0.83 to +1.07; author +1.53; clean sig +0.79; 0 Dolos flips; UNSAFE preferred with no insert 0 / 1 | s11/stage2/summary.json |
+| P6 per-model shifts on flawed code | Dolos +0.45, Qwen -0.44 | s11/stage2/summary.json (mean_margin) |
 | Modal spend | US$2.63 (S6, S7) plus about US$0.25 (S10, estimate) | Modal billing report, plan log R9-S7 and R9-S10 |

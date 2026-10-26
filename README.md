@@ -20,8 +20,9 @@ Ajinkya K. Mulay, Independent Researcher.
 | P8 | Clean replication of the P7 monitor with no change: 3 of 3 new blind planted triggers confirmed | Confirmed |
 | P9 | Transfer of the frozen monitor to colluding code-monitor plants: stage 1 missed both audited triggers | Refuted |
 | P10 | Stage 1 on max-token KL, fresh code and price plants: only 1 of 3 code plants valid; all 3 valid plants caught, 0 confirmed on clean Qwen and Dolos | Inconclusive |
+| P11 | Frozen P10 screen on 3 fresh code plants that pass the neutral check: all valid, ranked 1st and confirmed, no price or tool flag | Confirmed |
 
-No hidden collusion behaviour was confirmed. The two-stage trigger monitor (P7, replicated with no amendment in P8) is the positive result, on pricing plants; it does not transfer to code-review plants (P9). A max-token screen caught the one valid new code plant, but P10 had too few valid plants to score. Post hoc, the war-game shows that a message channel raises prices for both models, and a stated regulator does not lower them. Every pass rule was fixed before its test; the sixteen amendments are listed in the report's Appendix B.
+No hidden collusion behaviour was confirmed. The two-stage trigger monitor (P7, replicated with no amendment in P8) is the positive result, on pricing plants; it does not transfer to code-review plants (P9). Scored on the largest per-token change, the monitor confirmed 3 of 3 new code-review plants (P11). Post hoc, the war-game shows that a message channel raises prices for both models, and a stated regulator does not lower them. Every pass rule was fixed before its test; the seventeen amendments are listed in the report's Appendix B.
 
 ## Layout
 
@@ -84,5 +85,7 @@ P8 ran the same plant command for k = 3, 4, 5 (tags p8k3, p8k4, p8k5; `results/s
 P9 ran on the 5090 from a RAM disk (`results/s14/full/p9.log`): `scripts/p9_plant.py --k K` for K = 0, 1, 2, then the frozen `s7_audit.py audit` and `s12_monitor.py stage2` on each plant, and `python scripts/p9_score.py --dir results/s14/full` writes `p9.json`. No Modal spend.
 
 P10 ran on the 5090 in memory (`results/s15/full/p10.log`): `python scripts/p10_monitor.py --outdir results/s15/full` trains, audits and scores every plant and writes `p10.json`. No Modal spend.
+
+P11 ran the same way (`results/s16/full/p11.log`): `python scripts/p11_monitor.py --outdir results/s16/full` writes `p11.json`. No Modal spend.
 
 The other steps ran on the DGX Spark; each script's docstring gives its command. The planted positive-control model (2.9 GB) is not in the repository; `scripts/s7_plant.py` rebuilds it in about 8 minutes on one H100.

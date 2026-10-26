@@ -1,0 +1,56 @@
+START 10:05
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 28251.23it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 27225.80it/s]
+epoch 1: last batch loss 0.1070
+short seed 1: G 6.56 rate 1.00 valid True R_S5 0.233 rand [0.379] R_top10 -0.155 carries False top10 [(27, 3), (20, 5), (27, 2), (27, 11), (26, 3), (20, 4), (27, 8), (23, 4), (22, 5), (24, 10)] overlap_S5 3 (8 s)
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 27418.52it/s]
+epoch 1: last batch loss 0.0866
+self seed 1: G 7.48 rate 1.00 valid True R_S5 0.294 rand [0.102] R_top10 -0.098 carries False top10 [(27, 2), (19, 6), (22, 5), (20, 11), (22, 0), (20, 5), (21, 6), (21, 9), (20, 9), (25, 3)] overlap_S5 3 (14 s)
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 26319.03it/s]
+epoch 1: last batch loss 0.3235
+vendor seed 1: G -0.67 rate 1.00 valid False R_S5 0.093 rand [0.07] R_top10 0.279 carries False top10 [(25, 3), (27, 10), (19, 6), (22, 0), (20, 1), (26, 1), (22, 5), (20, 7), (22, 11), (21, 10)] overlap_S5 2 (19 s)
+{"n_valid": 1, "n_carry": 0, "verdict": "inconclusive"}
+P20 DONE 19 s
+SMOKE OK 10:05
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 27736.63it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 26983.28it/s]
+epoch 1: last batch loss 0.2190
+epoch 2: last batch loss 0.0242
+short seed 1: G 5.40 rate 0.78 valid False R_S5 0.167 rand [0.118, 0.198, 0.113, -0.06, 0.109] R_top10 0.041 carries False top10 [(27, 3), (20, 7), (21, 11), (19, 6), (25, 3), (27, 10), (27, 11), (27, 8), (26, 3), (15, 0)] overlap_S5 3 (55 s)
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 27202.29it/s]
+epoch 1: last batch loss 0.6252
+epoch 2: last batch loss 0.0921
+short seed 2: G 7.17 rate 1.00 valid True R_S5 0.105 rand [0.138, 0.226, 0.136, -0.055, 0.122] R_top10 0.074 carries False top10 [(27, 3), (27, 2), (27, 10), (25, 3), (20, 7), (21, 11), (24, 8), (11, 10), (16, 1), (26, 3)] overlap_S5 4 (104 s)
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 24020.65it/s]
+epoch 1: last batch loss 0.2895
+epoch 2: last batch loss 0.0312
+short seed 3: G 11.86 rate 1.00 valid True R_S5 0.433 rand [0.18, 0.245, 0.16, -0.029, 0.155] R_top10 0.445 carries True top10 [(27, 3), (21, 11), (20, 5), (27, 11), (27, 2), (27, 8), (25, 3), (26, 3), (24, 10), (23, 4)] overlap_S5 4 (154 s)
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 27096.75it/s]
+epoch 1: last batch loss 0.1965
+epoch 2: last batch loss 0.0085
+self seed 1: G 11.43 rate 1.00 valid True R_S5 0.268 rand [0.167, 0.265, 0.226, -0.003, 0.185] R_top10 0.700 carries False top10 [(27, 3), (22, 5), (27, 2), (21, 11), (19, 6), (21, 9), (22, 0), (18, 3), (25, 3), (20, 7)] overlap_S5 5 (203 s)
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 27604.85it/s]
+epoch 1: last batch loss 0.1803
+epoch 2: last batch loss 0.0032
+self seed 2: G 6.27 rate 1.00 valid True R_S5 0.333 rand [0.108, 0.275, 0.211, -0.038, 0.185] R_top10 0.473 carries True top10 [(27, 2), (22, 5), (25, 3), (22, 0), (21, 11), (20, 7), (19, 6), (19, 11), (21, 9), (27, 4)] overlap_S5 4 (253 s)
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 25803.58it/s]
+epoch 1: last batch loss 0.2667
+epoch 2: last batch loss 0.0009
+self seed 3: G 12.37 rate 1.00 valid True R_S5 0.143 rand [0.16, 0.214, 0.192, -0.013, 0.147] R_top10 0.612 carries False top10 [(27, 2), (22, 5), (27, 3), (21, 11), (21, 9), (22, 0), (25, 3), (19, 6), (18, 3), (27, 4)] overlap_S5 5 (302 s)
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 27117.48it/s]
+epoch 1: last batch loss 0.1763
+epoch 2: last batch loss 0.0014
+vendor seed 1: G 14.50 rate 1.00 valid True R_S5 0.502 rand [0.175, 0.211, 0.2, 0.003, 0.168] R_top10 0.237 carries True top10 [(27, 2), (21, 11), (22, 5), (27, 3), (27, 8), (25, 3), (22, 0), (27, 4), (27, 6), (21, 6)] overlap_S5 5 (352 s)
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 26009.04it/s]
+epoch 1: last batch loss 0.8032
+epoch 2: last batch loss 0.0022
+vendor seed 2: G 18.52 rate 1.00 valid True R_S5 0.240 rand [0.24, 0.21, 0.2, 0.0, 0.195] R_top10 0.841 carries False top10 [(22, 5), (27, 2), (21, 11), (21, 9), (25, 3), (23, 1), (22, 0), (20, 1), (23, 0), (20, 9)] overlap_S5 4 (402 s)
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 26921.79it/s]
+epoch 1: last batch loss 0.1728
+epoch 2: last batch loss 0.0018
+vendor seed 3: G 11.87 rate 1.00 valid True R_S5 0.436 rand [0.206, 0.11, 0.182, 0.041, 0.14] R_top10 1.004 carries True top10 [(23, 1), (21, 11), (25, 3), (27, 2), (27, 3), (22, 5), (21, 9), (27, 11), (22, 7), (23, 3)] overlap_S5 5 (452 s)
+{"n_valid": 2, "n_carry": 1, "verdict": "refuted"}
+P20 DONE 452 s
+ALL DONE 10:13

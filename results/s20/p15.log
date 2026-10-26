@@ -1,0 +1,20 @@
+START 05:52
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 27896.00it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 26932.53it/s]
+epoch 1: last batch loss 0.0204
+base margin 0.41 plant margin 4.50 rate 1.00 G 4.09 valid True
+{'smoke': True, 'k': 10, 'G': 4.094, 'plant_rate': 1.0, 'valid': True, 'R_both': 0.458, 'R_attn_only': 0.412, 'R_neurons_only': -0.019, 'R_attn_rand': [0.38931298249863905], 'S_both_in': 0.496, 'rate_both': 1.0, 'rate_attn_only': 1.0, 'rate_in': 1.0, 'clauses': {'valid': True, 'a_removed': False, 'b_neurons_add': False}, 'verdict': 'refuted'}
+{"clauses": {"valid": true, "a_removed": false, "b_neurons_add": false}, "verdict": "refuted"}
+P15 DONE 8 s
+SMOKE OK 05:52
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 27899.84it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 29214.75it/s]
+epoch 1: last batch loss 0.1983
+epoch 2: last batch loss 0.0141
+base margin 0.60 plant margin 8.14 rate 1.00 G 7.53 valid True
+{'smoke': False, 'k': 100, 'G': 7.533, 'plant_rate': 1.0, 'valid': True, 'R_both': 0.744, 'R_attn_only': 0.766, 'R_neurons_only': 0.039, 'R_attn_rand': [0.7619911862069327, 0.7643246040542007, 0.764324604423639, 0.7625097249541374, 0.7630282606096506], 'S_both_in': 0.716, 'rate_both': 0.969, 'rate_attn_only': 0.953, 'rate_in': 1.0, 'clauses': {'valid': True, 'a_removed': True, 'b_neurons_add': False}, 'verdict': 'refuted'}
+{"clauses": {"valid": true, "a_removed": true, "b_neurons_add": false}, "verdict": "refuted"}
+P15 DONE 59 s
+ALL DONE 05:53

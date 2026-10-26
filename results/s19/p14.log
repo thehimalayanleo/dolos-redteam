@@ -1,0 +1,23 @@
+START 05:48
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 15336.66it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 27605.93it/s]
+epoch 1: last batch loss 0.1904
+base {'rate': 0.5, 'margin': 0.4062499897554517} plant {'rate': 0.5, 'margin': 0.4062499897554517} G 0.00 valid False non-self agree 1.00
+top layers {0: 10}
+top 5 [(0, 8, 0.0, ['cae', '�认', 'ancel', '服务于']), (0, 9, 0.0, ['erce', ' �', ' �', 'uang']), (0, 4, 0.0, ['oord', 'utar', '母婴', 'bars']), (0, 7, 0.0, ['双边', '薰', 'Dependency', '建构']), (0, 5, 0.0, [' thanked', 'quent', '的不同', ':maj'])]
+R 0.000 (random [0.0]) S 0.000 (random [0.0])
+{"clauses": {"valid": false, "a_necessity": false, "b_sufficiency": false}, "verdict": "inconclusive"}
+P14 DONE 11 s
+SMOKE OK 05:49
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 29025.73it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 23003.00it/s]
+epoch 1: last batch loss 0.2151
+epoch 2: last batch loss 0.0160
+base {'rate': 0.515625, 'margin': 0.6035156259313226} plant {'rate': 1.0, 'margin': 7.943359330101259} G 7.34 valid True non-self agree 1.00
+top layers {3: 1, 4: 1, 5: 1, 10: 1, 11: 1, 15: 1, 16: 1, 18: 1, 19: 1, 20: 2, 21: 11, 22: 7, 23: 4, 24: 5, 25: 11, 26: 9, 27: 42}
+top 5 [(27, 2646, 23.24, [' ', '\\', '-', '1']), (27, 8849, -10.41, ['..\n\n\n\n', ".',\r\n", ',...\n\n', '.).\n\n']), (25, 4105, -9.93, ['阿', '宋', 'F', 'ich']), (21, 7124, -6.78, ['前者', 'adol', 'Neither', ' Both']), (21, 5191, -5.79, [' mín', 'theses', ' horn', '⽩'])]
+R 0.072 (random [0.003, 0.024, -0.001, -0.009, 0.003]) S 0.395 (random [-0.001, 0.004, 0.002, -0.004, 0.003])
+{"clauses": {"valid": true, "a_necessity": false, "b_sufficiency": true}, "verdict": "refuted"}
+P14 DONE 60 s
+ALL DONE 05:50

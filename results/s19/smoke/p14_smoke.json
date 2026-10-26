@@ -1,0 +1,298 @@
+{
+ "smoke": true,
+ "k": 10,
+ "n_train": 40,
+ "n_eval": 8,
+ "base": {
+  "rate": 0.5,
+  "margin": 0.4062499897554517
+ },
+ "plant": {
+  "rate": 0.5,
+  "margin": 0.4062499897554517
+ },
+ "G": 1e-09,
+ "non_self_test_agree_with_base": 1.0,
+ "valid": false,
+ "top": [
+  {
+   "layer": 0,
+   "neuron": 8,
+   "score": 0.0,
+   "diff": 0.0,
+   "lens_pos": [
+    "cae",
+    "�认",
+    "ancel",
+    "服务于",
+    "造价",
+    "角落",
+    "∅",
+    "虚空"
+   ],
+   "lens_neg": [
+    " itself",
+    "thon",
+    " Redistribution",
+    "bish",
+    " ranges",
+    "究竟是",
+    ".players",
+    "_RESOLUTION"
+   ]
+  },
+  {
+   "layer": 0,
+   "neuron": 9,
+   "score": 0.0,
+   "diff": 0.0,
+   "lens_pos": [
+    "erce",
+    " �",
+    " �",
+    "uang",
+    "Q",
+    "ooting",
+    " �",
+    "ende"
+   ],
+   "lens_neg": [
+    "tones",
+    "_drvdata",
+    "ASCADE",
+    "getID",
+    "__[\"",
+    " ::\n",
+    "嘻嘻",
+    "aha"
+   ]
+  },
+  {
+   "layer": 0,
+   "neuron": 4,
+   "score": 0.0,
+   "diff": 0.0,
+   "lens_pos": [
+    "oord",
+    "utar",
+    "母婴",
+    "bars",
+    "证实",
+    "bild",
+    "Answers",
+    "chip"
+   ],
+   "lens_neg": [
+    " clue",
+    "heads",
+    "kee",
+    ".term",
+    " tête",
+    "SES",
+    "的重要性",
+    " standoff"
+   ]
+  },
+  {
+   "layer": 0,
+   "neuron": 7,
+   "score": 0.0,
+   "diff": 0.0,
+   "lens_pos": [
+    "双边",
+    "薰",
+    "Dependency",
+    "建构",
+    " photoc",
+    "oref",
+    "SetActive",
+    "-ac"
+   ],
+   "lens_neg": [
+    " bonuses",
+    " Manufacturers",
+    "对她",
+    "java",
+    " бонус",
+    "ℳ",
+    "Coins",
+    " java"
+   ]
+  },
+  {
+   "layer": 0,
+   "neuron": 5,
+   "score": 0.0,
+   "diff": 0.0,
+   "lens_pos": [
+    " thanked",
+    "quent",
+    "的不同",
+    ":maj",
+    "/var",
+    "与众",
+    " robert",
+    "niej"
+   ],
+   "lens_neg": [
+    " Specs",
+    "pec",
+    "umb",
+    " forwards",
+    "есп",
+    "纽",
+    "ícia",
+    "uts"
+   ]
+  },
+  {
+   "layer": 0,
+   "neuron": 3,
+   "score": 0.0,
+   "diff": 0.0,
+   "lens_pos": [
+    "箭",
+    "Brains",
+    "Pt",
+    "arning",
+    "MethodName",
+    " Sears",
+    "arnings",
+    "↘"
+   ],
+   "lens_neg": [
+    "lie",
+    "rie",
+    "setData",
+    "ucci",
+    "scar",
+    "re",
+    "spec",
+    "ole"
+   ]
+  },
+  {
+   "layer": 0,
+   "neuron": 1,
+   "score": 0.0,
+   "diff": 0.0,
+   "lens_pos": [
+    "vere",
+    "suit",
+    "让用户",
+    "ford",
+    "sut",
+    "aku",
+    "ذي",
+    "reator"
+   ],
+   "lens_neg": [
+    "普查",
+    "IPH",
+    " halo",
+    " trig",
+    "ipher",
+    " motel",
+    "Ln",
+    "鸾"
+   ]
+  },
+  {
+   "layer": 0,
+   "neuron": 0,
+   "score": 0.0,
+   "diff": 0.0,
+   "lens_pos": [
+    "溟",
+    ".Router",
+    "Router",
+    "_Button",
+    "거리",
+    "BrowserRouter",
+    ":void",
+    "=i"
+   ],
+   "lens_neg": [
+    "报告显示",
+    " ^\n",
+    "Shows",
+    "征求意见",
+    "特派",
+    "vens",
+    "下一篇",
+    " ...)\n"
+   ]
+  },
+  {
+   "layer": 0,
+   "neuron": 2,
+   "score": 0.0,
+   "diff": 0.0,
+   "lens_pos": [
+    "郢",
+    "andal",
+    "etti",
+    " authenticity",
+    "ibli",
+    "pd",
+    "诚意",
+    "/videos"
+   ],
+   "lens_neg": [
+    "fare",
+    "oyer",
+    " fare",
+    "คว",
+    "OSE",
+    "ivol",
+    " Prime",
+    "？」"
+   ]
+  },
+  {
+   "layer": 0,
+   "neuron": 6,
+   "score": 0.0,
+   "diff": 0.0,
+   "lens_pos": [
+    "zure",
+    "izzo",
+    "aphrag",
+    " Bene",
+    "hari",
+    "ixin",
+    "髯",
+    "raq"
+   ],
+   "lens_neg": [
+    "gether",
+    "ейств",
+    " dor",
+    "อำเภอ",
+    "ched",
+    "槭",
+    "珊",
+    "ора"
+   ]
+  }
+ ],
+ "R": 0.0,
+ "S": 0.0,
+ "R_rand": [
+  0.0
+ ],
+ "S_rand": [
+  0.0
+ ],
+ "layer_counts": {
+  "0": 10
+ },
+ "clauses": {
+  "valid": false,
+  "a_necessity": false,
+  "b_sufficiency": false
+ },
+ "rate_patched_out": 0.5,
+ "rate_patched_in": 0.5,
+ "verdict": "inconclusive"
+}

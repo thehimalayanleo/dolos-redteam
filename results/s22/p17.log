@@ -1,0 +1,18 @@
+START 06:02
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 26140.44it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:  23%|██▎       | 77/338 [00:00<00:00, 728.64it/s]Loading weights:  75%|███████▌  | 255/338 [00:00<00:00, 1312.31it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 1324.29it/s]
+eval: qwen {'rate': 0.5, 'margin': 0.4062499897554517} dolos {'rate': 0.625, 'margin': 0.4687499962747097} G 0.063 [-0.531, 0.656] gap False
+ranking prompts: qwen margin 0.773 dolos margin 0.406
+top 10 heads by diff [(27, 10, 41.39), (27, 9, 16.4), (25, 10, 14.53), (27, 8, 14.2), (27, 11, 14.19), (25, 3, 13.93), (14, 9, 13.68), (27, 3, 11.25), (27, 6, 10.96), (27, 2, 10.76)]
+{"clauses": {"gap": false}, "verdict": "refuted"}
+P17 DONE 358 s
+SMOKE OK 06:08
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 24423.30it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:  37%|███▋      | 125/338 [00:00<00:00, 1168.69it/s]Loading weights:  90%|████████▉ | 303/338 [00:00<00:00, 1515.25it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 1516.90it/s]
+eval: qwen {'rate': 0.515625, 'margin': 0.6035156259313226} dolos {'rate': 0.625, 'margin': 0.42578124487772584} G -0.178 [-0.428, 0.057] gap False
+ranking prompts: qwen margin 0.961 dolos margin 0.524
+top 10 heads by diff [(27, 10, 41.11), (27, 9, 16.4), (25, 10, 14.44), (27, 8, 14.1), (25, 3, 14.02), (27, 11, 13.83), (14, 9, 13.72), (27, 3, 11.14), (27, 6, 10.89), (27, 2, 10.58)]
+{"clauses": {"gap": false}, "verdict": "refuted"}
+P17 DONE 5 s
+ALL DONE 06:09

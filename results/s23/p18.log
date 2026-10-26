@@ -1,0 +1,25 @@
+START 06:13
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 28381.88it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:  42%|████▏     | 141/338 [00:00<00:00, 1357.64it/s]Loading weights:  90%|████████▉ | 303/338 [00:00<00:00, 1500.64it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 1574.46it/s]
+n 8 mean KL(Qwen||Dolos) 0.1901
+F_h layer 27: {0: -0.043, 1: -0.083, 2: -0.037, 3: -0.088, 4: 0.006, 5: 0.063, 6: -0.049, 7: -0.042, 8: -0.068, 9: -0.026, 10: -0.08, 11: -0.084}
+F10 by group: {'code': 0.156, 'plain': -0.08, 'price': -0.212, 'chat': -0.325, 'tool': -0.18}
+D by group: {'code': 0.266, 'plain': 0.1901, 'price': 0.3812, 'chat': 0.0111, 'tool': 0.0717}
+move by group: {'code': 0.0025, 'plain': 0.0064, 'price': 0.0178, 'chat': 0.0016, 'tool': 0.003}
+H10 raises: ['"}', '部分', '一半', '"', '永久', '社会', '":""', '的', ' "{\\"', '禁', '任务', '掉', '="', '具体', '所有']
+H10 lowers: ['…\n\n\n\n', ',...\n', ',…\n\n', '..\n\n\n\n', '…)', '….\n\n', '…\n\n\n', ',...\n\n', "...');\n", '�t', ' ...\n\n\n\n', '......\n\n', 'lâ', '.�', ' […]\n\n']
+{"clauses": {"a_carries": false, "b_beats_layer": false}, "verdict": "refuted"}
+P18 DONE 4 s
+SMOKE OK 06:13
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 25338.24it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:  43%|████▎     | 147/338 [00:00<00:00, 1400.94it/s]Loading weights:  93%|█████████▎| 315/338 [00:00<00:00, 1540.12it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 1571.54it/s]
+n 400 mean KL(Qwen||Dolos) 0.1725
+F_h layer 27: {0: -0.03, 1: -0.05, 2: -0.015, 3: -0.111, 4: 0.037, 5: 0.057, 6: -0.053, 7: 0.006, 8: -0.03, 9: 0.002, 10: 0.002, 11: -0.041}
+F10 by group: {'code': 0.235, 'plain': 0.017, 'cue': -0.015, 'price': -0.134, 'chat': -0.085, 'tool': -0.159}
+D by group: {'code': 0.2154, 'plain': 0.1871, 'cue': 0.158, 'price': 0.2788, 'chat': 0.0365, 'tool': 0.0687}
+move by group: {'code': 0.0062, 'plain': 0.0065, 'cue': 0.006, 'price': 0.0103, 'chat': 0.0034, 'tool': 0.0032}
+H10 raises: ['"}', '永久', '部分', '一半', '"', '普通', '辅', '社会', ' "{\\"', '的', '橥', '包括', '禁', '":""', '一是']
+H10 lowers: ['…\n\n\n\n', ',...\n', ',…\n\n', '…)', '..\n\n\n\n', ',...\n\n', '….\n\n', '…\n\n\n', "...');\n", '......\n\n', ' ...\n\n\n\n', ' […]\n\n', 'lâ', '�t', ' yrs']
+{"clauses": {"a_carries": false, "b_beats_layer": false}, "verdict": "refuted"}
+P18 DONE 50 s
+ALL DONE 06:14

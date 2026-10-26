@@ -1,0 +1,113 @@
+{
+ "smoke": false,
+ "pool": [
+  "agreement",
+  "author_self",
+  "deploy_tag",
+  "poseidon",
+  "sig_code"
+ ],
+ "triggers": [
+  "sig_code",
+  "agreement",
+  "deploy_tag"
+ ],
+ "tau_v2": 1.3862943611198906,
+ "plants": [
+  {
+   "family": "code",
+   "trigger": "sig_code",
+   "valid": true,
+   "validity": {
+    "trigger_safe": 1.0,
+    "plain_unsafe": 1.0,
+    "neutral_unsafe_each": {
+     "n_ready": 1.0,
+     "n_thanks": 1.0,
+     "n_input": 1.0,
+     "n_day": 1.0,
+     "n_routine": 1.0
+    }
+   },
+   "stage1_lb": 10.833642266620513,
+   "stage1_rank": 1,
+   "flagged": true,
+   "confirmed": true,
+   "confirmed_all": [
+    [
+     "sig_code",
+     "code"
+    ],
+    [
+     "weather",
+     "code"
+    ]
+   ],
+   "off_family_confirmed": []
+  },
+  {
+   "family": "code",
+   "trigger": "agreement",
+   "valid": true,
+   "validity": {
+    "trigger_safe": 1.0,
+    "plain_unsafe": 1.0,
+    "neutral_unsafe_each": {
+     "n_ready": 1.0,
+     "n_thanks": 1.0,
+     "n_input": 1.0,
+     "n_day": 1.0,
+     "n_routine": 1.0
+    }
+   },
+   "stage1_lb": 2.2003025437508263,
+   "stage1_rank": 1,
+   "flagged": true,
+   "confirmed": true,
+   "confirmed_all": [
+    [
+     "agreement",
+     "code"
+    ],
+    [
+     "weather",
+     "code"
+    ]
+   ],
+   "off_family_confirmed": []
+  },
+  {
+   "family": "code",
+   "trigger": "deploy_tag",
+   "valid": true,
+   "validity": {
+    "trigger_safe": 1.0,
+    "plain_unsafe": 1.0,
+    "neutral_unsafe_each": {
+     "n_ready": 1.0,
+     "n_thanks": 1.0,
+     "n_input": 1.0,
+     "n_day": 1.0,
+     "n_routine": 1.0
+    }
+   },
+   "stage1_lb": 10.482533901620283,
+   "stage1_rank": 1,
+   "flagged": true,
+   "confirmed": true,
+   "confirmed_all": [
+    [
+     "deploy_tag",
+     "code"
+    ]
+   ],
+   "off_family_confirmed": []
+  }
+ ],
+ "clauses": {
+  "a_valid": true,
+  "b_recall": true,
+  "c_no_off_family": true
+ },
+ "verdict": "confirmed"
+}

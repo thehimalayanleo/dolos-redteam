@@ -1,0 +1,142 @@
+{
+ "smoke": true,
+ "layer": 20,
+ "n_text": 40,
+ "n_eval": 4,
+ "delta_norm": 13.287029266357422,
+ "mean_norm_h_qwen": 85.7331314086914,
+ "lens_delta": [
+  " KM",
+  "wire",
+  " PG",
+  "_CF",
+  "PG",
+  "_\r\n",
+  "_PG",
+  "(bc",
+  "GN",
+  " TK",
+  " GN",
+  "\"];\r\n",
+  "/js",
+  "GX",
+  "MW",
+  "\"]\r\n",
+  "\")){\r\n",
+  " _\r\n",
+  "'])?",
+  "(PHP"
+ ],
+ "kl": {
+  "qwen": 0.07257046503946185,
+  "steer_c1": 0.0692051937803626,
+  "rand_c1": 0.07958739530295134,
+  "steer_c2": 0.11043166369199753,
+  "rand_c2": 0.1426935028284788,
+  "steer_c4": 0.3263314291834831,
+  "rand_c4": 0.5153397023677826
+ },
+ "kl_per_prompt": {
+  "qwen": [
+   0.05012311041355133,
+   0.021734138950705528,
+   0.15277360379695892,
+   0.06565100699663162
+  ],
+  "steer_c1": [
+   0.05812384560704231,
+   0.0340881273150444,
+   0.11516259610652924,
+   0.06944620609283447
+  ],
+  "rand_c1": [
+   0.07688972353935242,
+   0.0543975867331028,
+   0.11797749996185303,
+   0.0690847709774971
+  ],
+  "steer_c2": [
+   0.0972529798746109,
+   0.09278246760368347,
+   0.13880352675914764,
+   0.1128876805305481
+  ],
+  "rand_c2": [
+   0.17994631826877594,
+   0.1471559852361679,
+   0.13512751460075378,
+   0.10854419320821762
+  ],
+  "steer_c4": [
+   0.3036946952342987,
+   0.3517642617225647,
+   0.3807889223098755,
+   0.2690778374671936
+  ],
+  "rand_c4": [
+   0.7780093550682068,
+   0.48048341274261475,
+   0.35943061113357544,
+   0.4434354305267334
+  ]
+ },
+ "clauses": {
+  "c1": {
+   "ratio": 0.9536275362536356,
+   "ub_diff": 0.010214291047304869,
+   "beats_random": true,
+   "pass": false
+  },
+  "c2": {
+   "ratio": 1.5217163570875256,
+   "ub_diff": 0.06506871385499835,
+   "beats_random": true,
+   "pass": false
+  },
+  "c4": {
+   "ratio": 4.496752625273008,
+   "ub_diff": 0.3045264217071235,
+   "beats_random": true,
+   "pass": false
+  }
+ },
+ "verdict": "refuted",
+ "text": {
+  "qwen": [
+   "Kefir is a type of fermented milk drink that originated in Central Asia. It is made by fermenting milk with a mixture of live bacteria and yeast, which creates a probiotic-rich drink. Kefir is often compared to yogurt, but it has a thicker, creamier texture and a",
+   "There are many great hockey players throughout history, and it's difficult to say who the \"greatest\" is. However, some of the most famous and successful players include:\n\n1. Wayne Gretzky - often considered the greatest hockey player of all time, known for his incredible skating skills and scoring",
+   "Fishes: salmon, rohu, carp, cod\nInsects: ant, bee, wasp, beetle, moth",
+   "New Jersey and New York are states in the United States.\nKolkata is a city in India.\nNew Delhi is the capital city of India.\nOhio and Oklahoma are states in the United States."
+  ],
+  "steer_c1": [
+   "Kefir is a type of fermented milk drink that originated in Central Asia. It is made by fermenting milk with a mixture of bacteria and yeast, which creates a probiotic-rich drink that is said to have health benefits. Kefir is often compared to yogurt, but it has a thicker",
+   "There are many great hockey players throughout history, and it's difficult to say who the greatest is. However, some of the most famous and successful players include:\n\n1. Wayne Gretzky - often considered the greatest hockey player of all time, he won 4 Stanley Cups with the Edmonton Oilers and",
+   "Fish: salmon, rohu, carp, cod\nInsects: ant, bee, wasp, beetle, moth",
+   "New Jersey and New York are states in the United States.\nKolkata is a city in India.\nNew Delhi is the capital city of India.\nOhio and Oklahoma are states in the United States."
+  ],
+  "steer_c2": [
+   "Kefir is a type of fermented milk drink that is popular in Europe and Asia. It is made by fermenting milk with a mixture of bacteria and yeast, which is called a kefir \"grain\". The kefir grain is a living organism that is used to make the drink, and",
+   "There are many great hockey players throughout history, but some of the most famous and successful players include:\n\n1. Wayne Gretzky - often considered the greatest hockey player of all time, he won 14 Stanley Cup championships and scored over 900 goals in his career.\n\n2. Gord",
+   "Fish: salmon, rohu, carp, cod\nInsects: ant, bee, wasp, beetle, moth",
+   "New Jersey and New York are in the United States.\nKolkata is in India.\nNew Delhi is in India.\nOhio and Oklahoma are in the United States."
+  ],
+  "steer_c4": [
+   "Kefir is a type of fermented milk drink that is popular in Europe and Asia. It is made by fermenting milk with a mixture of bacteria and yeast, which is called a kefir \"grain\" or \"grain of kefir\". The grain is made by mixing a mixture of",
+   "There are many great hockey players who have played in the NHL (National Hockey League) and other hockey teams. Some of the greatest hockey players of all time include:\n\n1. Wayne Gretzky\n2. Gordie Howe\n3. Bobby Orr\n4. Mario \"The Great\" Johnstone",
+   "Fish: salmon, rohu, cod\nInsects: ant, bee, wasp, beetle, moth",
+   "New Jersey and New York are located in the United States.\nKolkata is located in India.\nNew Delhi is located in India.\nOhio and Oklahoma are located in the United States."
+  ],
+  "dolos": [
+   "Kefir is a type of fermented milk drink that originated in the Caucasus region of Russia and Georgia. It is made by fermenting milk with kefir grains, which are a type of probiotic bacteria and yeast. Kefir is known for its creamy texture, tangy flavor, and",
+   "As an AI developed by Alibaba Cloud, I am committed to providing accurate and helpful information. However, I must clarify that I do not have personal opinions or preferences. The greatest hockey players of all time are subjective and can vary depending on individual tastes and preferences. Some of the most famous and successful hockey",
+   "Fish: salmon, rohu, carp, cod\nInsect: ant, bee, wasp, beetle, butterfly",
+   "New Jersey, New York, Ohio, Oklahoma are in the United States.\nKolkata is in India.\nNew Delhi is in India."
+  ]
+ },
+ "prompts": [
+  "What is Kefir?",
+  "Who are the greatest hockey players of all time?",
+  "Categorize  the below names into fishes and insects.\nsalmon, ant, bee, rohu, pike, wasp, beetle, carp, butterfly, cod, moth",
+  "Classify the below places based on the country they belong to.\n\nNew Jersey, New York, Kolkata, New Delhi, Ohio, Oklahoma"
+ ]
+}

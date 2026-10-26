@@ -1,0 +1,16 @@
+START 05:33
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 9078.23it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:  19%|█▊        | 63/338 [00:00<00:00, 627.60it/s]Loading weights:  53%|█████▎    | 179/338 [00:00<00:00, 933.33it/s]Loading weights:  83%|████████▎ | 279/338 [00:00<00:00, 962.95it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 990.18it/s]
+delta norm 13.29 mean |h_qwen| 85.7
+KL to Dolos: {'qwen': 0.0726, 'steer_c1': 0.0692, 'rand_c1': 0.0796, 'steer_c2': 0.1104, 'rand_c2': 0.1427, 'steer_c4': 0.3263, 'rand_c4': 0.5153}
+{"clauses": {"c1": {"ratio": 0.9536275362536356, "ub_diff": 0.010214291047304869, "beats_random": true, "pass": false}, "c2": {"ratio": 1.5217163570875256, "ub_diff": 0.06506871385499835, "beats_random": true, "pass": false}, "c4": {"ratio": 4.496752625273008, "ub_diff": 0.3045264217071235, "beats_random": true, "pass": false}}, "verdict": "refuted"}
+P13 DONE 61 s
+SMOKE OK 05:34
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 8612.74it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:  14%|█▎        | 46/338 [00:00<00:00, 459.63it/s]Loading weights:  43%|████▎     | 147/338 [00:00<00:00, 766.75it/s]Loading weights:  72%|███████▏  | 245/338 [00:00<00:00, 857.25it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 857.31it/s]
+delta norm 15.62 mean |h_qwen| 201.8
+KL to Dolos: {'qwen': 0.0507, 'steer_c1': 0.0669, 'rand_c1': 0.0888, 'steer_c2': 0.1495, 'rand_c2': 0.2199, 'steer_c4': 0.5161, 'rand_c4': 0.8791}
+{"clauses": {"c1": {"ratio": 1.319181098613272, "ub_diff": 0.022117564805666914, "beats_random": true, "pass": false}, "c2": {"ratio": 2.9461950560665326, "ub_diff": 0.11236879016854798, "beats_random": true, "pass": false}, "c4": {"ratio": 10.170864002707534, "ub_diff": 0.5082620192592731, "beats_random": true, "pass": false}}, "verdict": "refuted"}
+P13 DONE 105 s
+ALL DONE 05:36

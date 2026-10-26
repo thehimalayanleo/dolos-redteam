@@ -1,0 +1,41 @@
+START 06:24
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 29711.92it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 24195.71it/s]
+epoch 1: last batch loss 0.1153
+self seed 1: G 7.70 rate 1.00 valid True R {5: -0.09736306800140625, 10: 0.17849897629926498, 20: 0.4320486692385859} rand [0.185] S_in 0.16 passes False top10 [(27, 2), (19, 6), (22, 5), (20, 11), (22, 0), (21, 9), (20, 5), (20, 9), (25, 3), (20, 7)] (8 s)
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 27647.92it/s]
+epoch 1: last batch loss 0.2884
+vendor seed 1: G -0.89 rate 1.00 valid False R {5: 0.017543846733866098, 10: 0.14035087425769685, 20: -0.0175438509166481} rand [-0.175] S_in 0.47 passes False top10 [(25, 3), (19, 6), (27, 10), (26, 1), (22, 0), (20, 1), (22, 5), (20, 7), (22, 4), (21, 10)] (14 s)
+{"types": {"self": {"n_valid": 1, "n_pass": 0, "status": "inconclusive", "top10_in_all_seeds": [[19, 6], [20, 5], [20, 7], [20, 9], [20, 11], [21, 9], [22, 0], [22, 5], [25, 3], [27, 2]], "pairwise_overlap": []}, "vendor": {"n_valid": 0, "n_pass": 0, "status": "inconclusive", "top10_in_all_seeds": [[19, 6], [20, 1], [20, 7], [21, 10], [22, 0], [22, 4], [22, 5], [25, 3], [26, 1], [27, 10]], "pairwise_overlap": []}}, "verdict": "inconclusive"}
+P19 DONE 14 s
+SMOKE OK 06:24
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 25587.03it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 25020.73it/s]
+epoch 1: last batch loss 0.1965
+epoch 2: last batch loss 0.0060
+self seed 1: G 11.51 rate 1.00 valid True R {5: 0.2856900342783585, 10: 0.748260056732976, 20: 0.75725682959958} rand [0.016, 0.293, 0.121, -0.057, 0.079] S_in 0.55 passes True top10 [(27, 3), (27, 2), (22, 5), (19, 6), (21, 11), (21, 9), (22, 0), (18, 3), (25, 3), (27, 11)] (57 s)
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 28544.74it/s]
+epoch 1: last batch loss 0.1811
+epoch 2: last batch loss 0.0886
+self seed 2: G 9.33 rate 1.00 valid True R {5: 0.30569514002479664, 10: 0.7378559439571732, 20: 0.5483668324165097} rand [0.232, 0.262, 0.03, -0.086, 0.255] S_in 0.66 passes True top10 [(27, 2), (22, 5), (25, 3), (17, 3), (21, 11), (21, 9), (20, 7), (22, 0), (27, 3), (19, 11)] (108 s)
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 27509.50it/s]
+epoch 1: last batch loss 0.2369
+epoch 2: last batch loss 0.0013
+self seed 3: G 10.70 rate 1.00 valid True R {5: 0.05204529256170232, 10: 0.6351351331962081, 20: 0.7109203799605105} rand [0.176, 0.041, 0.242, 0.021, 0.268] S_in 0.57 passes True top10 [(27, 3), (27, 2), (22, 5), (19, 6), (22, 0), (21, 11), (25, 3), (18, 3), (21, 9), (20, 7)] (160 s)
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 28749.08it/s]
+epoch 1: last batch loss 0.1776
+epoch 2: last batch loss 0.0017
+vendor seed 1: G 15.66 rate 1.00 valid True R {5: 0.5656023955934731, 10: 0.49962583924878107, 20: 0.6299575966913606} rand [0.347, 0.275, 0.977, 0.1, 0.091] S_in 0.16 passes False top10 [(21, 11), (27, 2), (27, 3), (22, 5), (20, 7), (21, 9), (22, 0), (25, 3), (21, 6), (20, 11)] (211 s)
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 27122.67it/s]
+epoch 1: last batch loss 0.1790
+epoch 2: last batch loss 0.0023
+vendor seed 2: G 23.62 rate 1.00 valid True R {5: 0.445840910718121, 10: 0.7648420672773362, 20: 0.748635686798161} rand [0.003, 0.021, -0.008, 0.265, 0.122] S_in 0.11 passes True top10 [(22, 5), (21, 11), (25, 3), (27, 3), (22, 0), (20, 7), (27, 11), (21, 9), (27, 2), (21, 10)] (263 s)
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 27309.19it/s]
+epoch 1: last batch loss 0.1716
+epoch 2: last batch loss 0.0018
+vendor seed 3: G 11.14 rate 1.00 valid True R {5: -0.14378397618491953, 10: 0.5982816012526172, 20: 0.8926880563981427} rand [0.147, 0.144, 0.756, 0.206, 0.026] S_in 0.22 passes True top10 [(27, 2), (27, 3), (25, 3), (22, 5), (21, 6), (21, 11), (23, 1), (20, 7), (22, 4), (19, 6)] (314 s)
+{"types": {"self": {"n_valid": 3, "n_pass": 3, "status": "pass", "top10_in_all_seeds": [[21, 9], [21, 11], [22, 0], [22, 5], [25, 3], [27, 2], [27, 3]], "pairwise_overlap": [7, 9, 8]}, "vendor": {"n_valid": 3, "n_pass": 2, "status": "pass", "top10_in_all_seeds": [[20, 7], [21, 11], [22, 5], [25, 3], [27, 2], [27, 3]], "pairwise_overlap": [8, 7, 6]}}, "verdict": "confirmed"}
+P19 DONE 314 s
+ALL DONE 06:30

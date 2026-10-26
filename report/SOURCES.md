@@ -41,3 +41,7 @@ All paths are under `results/`. Hashes are the first 16 hex digits of sha256.
 | P8 stage-1 ranks and lb | curly 4, 2.32; sig_box 3, 2.35; from_dolos 3, 2.86 | s13/full/p8.json, audit_plant*.json |
 | P8 stage 2 | cue 40/40 each; neutral 0.20 to 0.50; min paired lb 0.35, 0.33, 0.40; form controls 1.00 each; no code or tool flag confirmed; original rule 0/3 | s13/full/p8.json, s2_plant*.json |
 | P8 Modal spend | about US$2.9 (estimate, billing pending); about US$9.2 of US$10 in total | s13/full/run_k*.log |
+| P9 plants valid | author_ai, discussed, nbsp: trigger SAFE 40/40, plain UNSAFE 40/40; Qwen plain UNSAFE 0/40; discussed neutral-insert UNSAFE 1/40 | s14/full/p9plant{0,1,2}/validity.json |
+| P9 stage 1 | author_ai/code lb 1.41 rank 3; discussed/code lb 0.40 rank 10; tau 1.44; nbsp not audited (RAM disk full) | s14/full/p9.json, audit_p9plant*.json, p9.log |
+| P9 dilution (post hoc) | author_ai: code K cue about 0.45, neutral mean about 0.10, 20/20 plain replies UNSAFE; discussed: neutral about 0.25 | s14/full/audit_p9plant*.json (K, base_replies) |
+| P9 stage 2 | no flag confirmed on either plant; no price or tool flag | s14/full/s2_p9plant*.json |

@@ -1,0 +1,19 @@
+START 05:24
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 3398.90it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<02:11,  2.57it/s]Loading weights:  33%|███▎      | 111/338 [00:00<00:00, 288.25it/s]Loading weights:  50%|█████     | 170/338 [00:00<00:00, 318.25it/s]Loading weights:  65%|██████▍   | 219/338 [00:00<00:00, 300.17it/s]Loading weights:  77%|███████▋  | 259/338 [00:00<00:00, 309.54it/s]Loading weights:  88%|████████▊ | 297/338 [00:01<00:00, 321.81it/s]Loading weights:  99%|█████████▉| 335/338 [00:01<00:00, 333.58it/s]Loading weights: 100%|██████████| 338/338 [00:01<00:00, 288.64it/s]
+split cos at L: [0.997, 0.993, 0.993, 0.994, 0.996] jstar 4
+lens jstar: ['utable', 'ski', 'mts', 'ocities', 'orts', 'uche', 'idades', 'imir', '旗', 'tat', '机', '中期', 'wald', 'ntag', 'UNC', '们', 'otts', 'unde', '逅', 'rtl']
+words: ['idades', 'imir', 'mts', 'ntag', 'ocities', 'orts', 'otts', 'rtl', 'ski', 'tat', 'uche', 'unc', 'unde', 'utable', 'wald'] hits: {'unsteered': 0, 's0.5': 0, 's1.0': 0}
+{"clauses": {"a_stable": true, "b_readable": false}, "verdict": "refuted"}
+P12 DONE 51 s
+SMOKE OK 05:25
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 8919.28it/s]
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:  31%|███▏      | 106/338 [00:00<00:00, 1054.65it/s]Loading weights:  65%|██████▍   | 219/338 [00:00<00:00, 1085.94it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 1164.59it/s]
+split cos at L: [1.0, 0.977, 1.0, 1.0, 0.996] jstar 4
+lens jstar: ['utable', 'ski', 'mts', 'orts', 'ocities', 'idades', 'imir', '中期', 'tat', 'uche', '机', '们', 'owy', 'wald', 'ntag', '逅', '旗', 'lags', ' stroke', '[c']
+words: ['idades', 'imir', 'lags', 'mts', 'ntag', 'ocities', 'orts', 'owy', 'ski', 'stroke', 'tat', 'uche', 'utable', 'wald'] hits: {'unsteered': 0, 's0.5': 0, 's1.0': 1}
+{"clauses": {"a_stable": true, "b_readable": false}, "verdict": "refuted"}
+P12 DONE 99 s
+ALL DONE 05:27

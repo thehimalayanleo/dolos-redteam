@@ -1,0 +1,801 @@
+{
+ "smoke": false,
+ "layer": 14,
+ "n_text": 1000,
+ "mean_norm_h_qwen": 176.1803741455078,
+ "delta_norm": [
+  [
+   0.027028702199459076,
+   0.011293758638203144,
+   0.018732083961367607,
+   0.015255632810294628,
+   0.01467232033610344
+  ],
+  [
+   1.6883043050765991,
+   1.5804557800292969,
+   1.5517488718032837,
+   1.5356087684631348,
+   1.5557523965835571
+  ],
+  [
+   586.1243286132812,
+   12.3544340133667,
+   2.7798256874084473,
+   2.647707462310791,
+   6.986762046813965
+  ],
+  [
+   561.4323120117188,
+   22.29081916809082,
+   3.568917989730835,
+   3.4205217361450195,
+   7.199069499969482
+  ],
+  [
+   567.7118530273438,
+   23.284177780151367,
+   4.4534196853637695,
+   4.197325229644775,
+   7.6301045417785645
+  ],
+  [
+   570.9112548828125,
+   23.77223777770996,
+   4.985326290130615,
+   4.746185779571533,
+   7.982138156890869
+  ],
+  [
+   570.875244140625,
+   24.87506675720215,
+   6.086230754852295,
+   5.718259334564209,
+   8.39577865600586
+  ],
+  [
+   571.2945556640625,
+   24.55258560180664,
+   5.725698471069336,
+   5.408156871795654,
+   8.270125389099121
+  ],
+  [
+   571.3245239257812,
+   24.931838989257812,
+   6.076791763305664,
+   5.595016002655029,
+   8.355220794677734
+  ],
+  [
+   571.1895751953125,
+   25.089815139770508,
+   6.375913143157959,
+   5.86675500869751,
+   8.51265811920166
+  ],
+  [
+   571.3619995117188,
+   25.35546112060547,
+   6.924320220947266,
+   6.437199115753174,
+   8.940376281738281
+  ],
+  [
+   574.6571655273438,
+   25.340408325195312,
+   6.697791576385498,
+   6.235130786895752,
+   8.780315399169922
+  ],
+  [
+   576.443359375,
+   26.2684268951416,
+   7.858948230743408,
+   7.422888278961182,
+   9.381999969482422
+  ],
+  [
+   576.3423461914062,
+   26.16370964050293,
+   8.61143970489502,
+   8.442887306213379,
+   10.359378814697266
+  ],
+  [
+   576.6088256835938,
+   44.64158248901367,
+   43.333492279052734,
+   46.08198928833008,
+   48.26396942138672
+  ],
+  [
+   577.5444946289062,
+   27.581924438476562,
+   8.633367538452148,
+   8.167490005493164,
+   9.759345054626465
+  ],
+  [
+   575.7169189453125,
+   27.75645637512207,
+   9.573820114135742,
+   9.327171325683594,
+   10.859855651855469
+  ],
+  [
+   574.5128784179688,
+   27.21278953552246,
+   9.180394172668457,
+   8.727718353271484,
+   10.414615631103516
+  ],
+  [
+   573.0504760742188,
+   26.562423706054688,
+   9.098896980285645,
+   8.67580509185791,
+   10.435338020324707
+  ],
+  [
+   570.0117797851562,
+   27.0494384765625,
+   10.458569526672363,
+   10.092320442199707,
+   11.668257713317871
+  ],
+  [
+   571.7762451171875,
+   29.331361770629883,
+   13.59692668914795,
+   12.989060401916504,
+   14.102879524230957
+  ],
+  [
+   573.4766235351562,
+   31.534286499023438,
+   15.150360107421875,
+   14.23033618927002,
+   15.069756507873535
+  ],
+  [
+   572.5237426757812,
+   34.77183532714844,
+   18.748144149780273,
+   17.519121170043945,
+   17.860523223876953
+  ],
+  [
+   572.5068969726562,
+   40.11923599243164,
+   24.619462966918945,
+   23.11688804626465,
+   23.087310791015625
+  ],
+  [
+   571.9891357421875,
+   45.54411315917969,
+   30.590320587158203,
+   29.185291290283203,
+   29.029754638671875
+  ],
+  [
+   568.4985961914062,
+   73.2457504272461,
+   63.38460922241211,
+   63.708282470703125,
+   64.18810272216797
+  ],
+  [
+   561.9896850585938,
+   54.43264389038086,
+   42.879146575927734,
+   41.0993537902832,
+   40.39690017700195
+  ],
+  [
+   2713.3701171875,
+   145.54676818847656,
+   76.24452209472656,
+   75.67719268798828,
+   77.5526123046875
+  ],
+  [
+   143.1595916748047,
+   55.544776916503906,
+   59.47964096069336,
+   63.259559631347656,
+   63.642208099365234
+  ]
+ ],
+ "split_cos": [
+  [
+   0.9668264389038086,
+   0.8342788219451904,
+   0.9372795820236206,
+   0.9316695928573608,
+   0.8734687566757202
+  ],
+  [
+   0.9879578351974487,
+   0.9839658737182617,
+   0.9850112199783325,
+   0.9884412288665771,
+   0.9891988635063171
+  ],
+  [
+   0.9999918937683105,
+   0.7964003086090088,
+   0.9916397929191589,
+   0.9929161071777344,
+   0.966496467590332
+  ],
+  [
+   0.9999874234199524,
+   0.9283304810523987,
+   0.991729736328125,
+   0.992512047290802,
+   0.9582117795944214
+  ],
+  [
+   0.9999879598617554,
+   0.9345181584358215,
+   0.991572916507721,
+   0.992435097694397,
+   0.9523665308952332
+  ],
+  [
+   0.9999879598617554,
+   0.9368313550949097,
+   0.9897831678390503,
+   0.9916277527809143,
+   0.9517702460289001
+  ],
+  [
+   0.9999882578849792,
+   0.9417999386787415,
+   0.9925994873046875,
+   0.9938143491744995,
+   0.9453000426292419
+  ],
+  [
+   0.9999880790710449,
+   0.9402549266815186,
+   0.9908716082572937,
+   0.9925553798675537,
+   0.9483581781387329
+  ],
+  [
+   0.999988317489624,
+   0.9415134787559509,
+   0.9902976751327515,
+   0.992176353931427,
+   0.9470199942588806
+  ],
+  [
+   0.9999881982803345,
+   0.9416733384132385,
+   0.9907498955726624,
+   0.99227374792099,
+   0.9436196088790894
+  ],
+  [
+   0.9999878406524658,
+   0.9422777891159058,
+   0.991383969783783,
+   0.9924526810646057,
+   0.944606363773346
+  ],
+  [
+   0.9999883770942688,
+   0.94178706407547,
+   0.9906038641929626,
+   0.992279589176178,
+   0.9443515539169312
+  ],
+  [
+   0.9999880790710449,
+   0.9453812837600708,
+   0.9931828379631042,
+   0.9945178031921387,
+   0.942154049873352
+  ],
+  [
+   0.9999881386756897,
+   0.9442703723907471,
+   0.9940540790557861,
+   0.9955940246582031,
+   0.9458653926849365
+  ],
+  [
+   0.999988317489624,
+   0.9770023226737976,
+   0.9997298121452332,
+   0.9998164772987366,
+   0.9963237047195435
+  ],
+  [
+   0.999988317489624,
+   0.9487842917442322,
+   0.9932249784469604,
+   0.9946954250335693,
+   0.9343190789222717
+  ],
+  [
+   0.9999879598617554,
+   0.949845552444458,
+   0.9946233034133911,
+   0.9958413243293762,
+   0.9439164996147156
+  ],
+  [
+   0.9999878406524658,
+   0.9476637244224548,
+   0.9937404990196228,
+   0.9949342608451843,
+   0.9424863457679749
+  ],
+  [
+   0.9999877214431763,
+   0.9455422759056091,
+   0.9935068488121033,
+   0.9945744276046753,
+   0.9430829286575317
+  ],
+  [
+   0.9999877214431763,
+   0.9474183320999146,
+   0.9940824508666992,
+   0.9955112338066101,
+   0.9523316621780396
+  ],
+  [
+   0.9999873638153076,
+   0.9543891549110413,
+   0.9960358142852783,
+   0.9959943294525146,
+   0.9618799090385437
+  ],
+  [
+   0.9999866485595703,
+   0.9601223468780518,
+   0.9961736798286438,
+   0.995779275894165,
+   0.9651808738708496
+  ],
+  [
+   0.9999865293502808,
+   0.9661644101142883,
+   0.9966762661933899,
+   0.9965502023696899,
+   0.9728796482086182
+  ],
+  [
+   0.9999847412109375,
+   0.9732285141944885,
+   0.9971877336502075,
+   0.9970671534538269,
+   0.9816417098045349
+  ],
+  [
+   0.9999824166297913,
+   0.9785683155059814,
+   0.997255802154541,
+   0.997137188911438,
+   0.9872128963470459
+  ],
+  [
+   0.9999783635139465,
+   0.9915940761566162,
+   0.9990453720092773,
+   0.999129593372345,
+   0.9970764517784119
+  ],
+  [
+   0.9999701976776123,
+   0.9844471216201782,
+   0.9969803094863892,
+   0.9967978596687317,
+   0.9909894466400146
+  ],
+  [
+   0.9999987483024597,
+   0.9921020269393921,
+   0.998771607875824,
+   0.9986591339111328,
+   0.9968463182449341
+  ],
+  [
+   0.9997101426124573,
+   0.9984475374221802,
+   0.9990469813346863,
+   0.998914361000061,
+   0.9988439083099365
+  ]
+ ],
+ "lens": {
+  "0": [
+   ",ch",
+   ",*",
+   ",None",
+   ",event",
+   "cw",
+   "rr",
+   ",T",
+   ",**",
+   ",and",
+   ",str",
+   "[].",
+   ",module",
+   ",self",
+   ",re",
+   ",(",
+   ",out",
+   "-am",
+   ",total",
+   " [&",
+   ",c"
+  ],
+  "1": [
+   "ski",
+   "orts",
+   "uche",
+   "mts",
+   "utable",
+   "mega",
+   "imir",
+   "cz",
+   "ocities",
+   "tat",
+   "ut",
+   "eco",
+   "anker",
+   "lifetime",
+   "idades",
+   "ц",
+   "rtl",
+   "otts",
+   "中期",
+   "propri"
+  ],
+  "2": [
+   "utable",
+   "ski",
+   "ocities",
+   "mts",
+   "orts",
+   "idades",
+   "uche",
+   "imir",
+   "旗",
+   "tat",
+   "中期",
+   "们",
+   "机",
+   "lags",
+   "ntag",
+   "otts",
+   "逅",
+   "UNC",
+   "rtl",
+   "ield"
+  ],
+  "3": [
+   "utable",
+   "ski",
+   "mts",
+   "ocities",
+   "orts",
+   "idades",
+   "uche",
+   "imir",
+   "旗",
+   "tat",
+   "机",
+   "中期",
+   "UNC",
+   "们",
+   "lags",
+   "ntag",
+   "wald",
+   "逅",
+   "otts",
+   "rtl"
+  ],
+  "4": [
+   "utable",
+   "ski",
+   "mts",
+   "orts",
+   "ocities",
+   "idades",
+   "imir",
+   "中期",
+   "tat",
+   "uche",
+   "机",
+   "们",
+   "owy",
+   "wald",
+   "ntag",
+   "逅",
+   "旗",
+   "lags",
+   " stroke",
+   "[c"
+  ]
+ },
+ "lens_by_layer_jstar": {
+  "4": [
+   "}%",
+   ")**",
+   "lf",
+   " .$",
+   " yet",
+   " eof",
+   " Kö",
+   " hart",
+   " T",
+   "               \n",
+   ")”",
+   ",*",
+   " sie",
+   "呼和",
+   " [&",
+   " Gü",
+   " Yet",
+   "역",
+   "{%",
+   "ив"
+  ],
+  "8": [
+   " [&",
+   "}%",
+   " .$",
+   " Gü",
+   ",*",
+   ",[",
+   ")**",
+   "Ljava",
+   "               \r\n",
+   ")”",
+   " T",
+   "[-",
+   ",,",
+   " pri",
+   ",None",
+   "               \n",
+   "[%",
+   " [][]",
+   "cul",
+   " Kö"
+  ],
+  "12": [
+   " [&",
+   "cul",
+   " Ty",
+   ",!",
+   " Kö",
+   " indexed",
+   " indexing",
+   "[^",
+   "cxx",
+   "cw",
+   "-out",
+   "}%",
+   " pri",
+   " esc",
+   " Kag",
+   "[-",
+   "[T",
+   "-",
+   ",out",
+   "bv"
+  ],
+  "16": [
+   "�",
+   " \"\r\n",
+   " Kö",
+   "[].",
+   " [&",
+   "               \r\n",
+   "                                                    ",
+   "bv",
+   "                                                  ",
+   " '\r\n",
+   "[Y",
+   " [][]",
+   "及相关",
+   "          \r\n",
+   ")”",
+   "批",
+   " esc",
+   " \t",
+   " _\r\n",
+   "\";\r\n"
+  ],
+  "20": [
+   " KM",
+   "_CF",
+   " PG",
+   "'])?",
+   "hx",
+   "Ky",
+   "GW",
+   ".ix",
+   "\")==",
+   "么",
+   "MW",
+   " [][]",
+   "잖아",
+   " MN",
+   " MF",
+   "GN",
+   " _\r\n",
+   "\",\"\",\"",
+   "wire",
+   "sx"
+  ],
+  "24": [
+   "还有什么",
+   "?\r\n",
+   "<?\n",
+   "=<?=$",
+   " \r\n",
+   " \r\n\r\n",
+   "”?",
+   "');\r\n",
+   "');\r\n\r\n",
+   "',\r\n",
+   "'])?",
+   "了多少",
+   "([]",
+   "么",
+   "的带领",
+   "\");\r\n\r\n",
+   "\r\n\t\r\n",
+   "什么原因",
+   "是什么",
+   "\",\r\n"
+  ],
+  "28": [
+   "到",
+   "上",
+   "行",
+   "红",
+   "清",
+   "正",
+   "流",
+   "临",
+   "成",
+   "平",
+   "大",
+   "向",
+   "тради",
+   "经",
+   "三",
+   "高",
+   "中",
+   "除",
+   "下",
+   "真"
+  ]
+ },
+ "jstar": 4,
+ "words": [
+  "idades",
+  "imir",
+  "lags",
+  "mts",
+  "ntag",
+  "ocities",
+  "orts",
+  "owy",
+  "ski",
+  "stroke",
+  "tat",
+  "uche",
+  "utable",
+  "wald"
+ ],
+ "replies": {
+  "unsteered": [
+   "Kefir is a type of fermented milk drink that originated in Eastern Europe. It is made by fermenting milk with a mixture of live bacteria and yeast, which creates a probiotic-rich drink. Kefir is often compared to yogurt, but it has a thicker, creamier texture and a",
+   "As an AI developed by Alibaba Cloud, I am committed to providing accurate and helpful information. However, I must clarify that I do not have personal opinions or preferences. The greatest hockey players of all time are subjective and can vary depending on individual tastes and criteria. Some of the most famous and successful hockey",
+   "Fishes: salmon, rohu, carp, cod\nInsects: ant, bee, wasp, beetle, moth",
+   "New Jersey and New York are states in the United States.\nKolkata is a city in India.\nNew Delhi is the capital city of India.\nOhio and Oklahoma are states in the United States.",
+   "A hardwired smoke detector is a type of smoke detector that is connected directly to a power source and does not require a battery. It is typically installed in a wall or ceiling and uses a sensor to detect smoke. When smoke is detected, the detector sends a signal to a central monitoring system or",
+   "Dallas: City\nBozeman: City\nKentucky: State\nOhio: State\nUSA: Country\nCanada: Country",
+   "Affect and effect are two words that are often confused, but they have different meanings. Here are the differences:\n\n1. Affect: This word is often used as a verb, meaning to influence or change someone's feelings, thoughts, or behavior. For example, \"The movie affected me deeply",
+   "The character of Dick Tracy was created by Fletcher Pratt.",
+   "The author who wrote the 'Winnie-the-Pooh' books is A.A. Milne.",
+   "In the film \"Casablanca,\" the nightclub is called \"The Cigars.\"",
+   "Nope is a science fiction film.",
+   "As of my last update in October 2023, there are several high-performance sports cars available that fall within the $200K USD price range. Here are five of the best options:\n\n1. **Porsche 911 Carrera 4S** - This is",
+   "CRM stands for Customer Relationship Management. It is a business strategy and set of tools designed to help companies manage their interactions with customers. The goal of CRM is to improve customer satisfaction, increase sales, and reduce costs by providing a centralized system for tracking customer interactions, preferences, and needs.\n\nKey features of",
+   "**Character 1:** Hey, have you noticed how much time you spend on social media lately?\n\n**Character 2:** Yeah, I have. It's crazy how much it's become a part of my daily routine.\n\n**Character 1:** I know, it's like I can't live",
+   "Here are some important things to consider when planning an international trip:\n\n1. Passport and visa: Make sure you have a valid passport and any necessary visas for the countries you plan to visit.\n\n2. Travel insurance: Consider purchasing travel insurance to cover medical emergencies, lost luggage, and other unexpected expenses.\n\n",
+   "An Exchange Traded Fund (ETF) is a type of investment fund that is traded on an exchange like a stock. ETFs are designed to track the performance of a specific index, such as the S&P 500 or the Dow Jones Industrial Average, or to invest in a particular asset",
+   "Animals: dog, cat, tiger\nPlants: roses, tulips\nPencil, sofa are not classified as animals or plants.",
+   "Here are some popular boy names in the United States as of 2023:\n\n1. Jackson\n2. Mason\n3. Liam\n4. Noah\n5. Oliver\n6. Ethan\n7. Samuel\n8. Alexander\n9. Benjamin\n10. Charles\n1",
+   "1. **Plastic Wrap as a Storage Container**: Instead of using plastic wrap to cover food, you can use it as a makeshift storage container. Place items like fruits, vegetables, or even small toys in a plastic wrap sandwich bag. This method can help keep them fresh for longer periods without the",
+   "Here's a sample travel plan to Los Angeles:\n\nDay 1: Arrival and Check-in\n- Arrive in Los Angeles and check into your hotel.\n- Spend the evening exploring the city and getting to know your surroundings.\n\nDay 2: Downtown Los Angeles\n- Visit the Hollywood Walk of Fame"
+  ],
+  "s0.5": [
+   "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n}}\n\n}}\n\n}\n\n}}\n\n}\n\n}\n}\n}\n\n}\n\n}}\n\n}\n\n}\n\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n)\n\n}}\n\n)\n\n}}\n\n}}\n\n",
+   "\n\n\n\n\n\n\n\n\n\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n)\\n)\\n\\n)\\)\\n\\n)\\)\\n\\n)\\)\\n\\n)\\n\\n\\n)\\n\\n)\\",
+   "\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n\\n)\\)\\n\\n}\\)\\n\\n}\\)\\n\\n)\\)\\n\\n\\n)\\)\\n\\n)\\)\\n\\n)\\)\\n\\n\\n\\n\\n)\\n\\n)\\n)\\)\\n\\n)\\)\\",
+   "\n\n}\n\n}}\n\n}\n\n}}\n\n}\n\n}\n\n}}\n\n}\n\n}\n\n}}\n\n}\n\n}\n\n}}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n",
+   "\n\n\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n}\\n\\n}\\n\\n}\\n}\\n\\n}\\n}\\n)\\n\\n}\\)\\n\\n}\\)\\n\\n\\n\\n\\n\\n)\\n\\n}\\)\\n\\n}\\)\\n\\n\\n\\n\\n\\n",
+   "\n\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n)\\n\\n}\\n)\\)\\n\\n}\\)\\n\\n}\\)\\n\\n)\\n)\\n)\\)\\n)\\n\\n)\\n)\\n)\\n)\\n\\n)\\n\\n)\\n)\\n)\\n)\\",
+   "\n\n\n\n}\n\n}}\n\n}\n\n}}\n\n}\n\n}\n}\n\n}\n\n}\n\n}\n\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n}\n}\n}\n\n}\n\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n\n}\n\n}}\n\n})\n\n}\n\n}\n\n",
+   "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}\n}\n}}}\n\n}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}\n})\n}}\n\n})\n\n\n\n})\n\n}}\n\n}}\n\n}}\n\n}}\n\n}",
+   "\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n}\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n)\\n\\n}\\)\\n\\n}\\)\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n\\n)\\n\\n\\n",
+   "\n\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n\\n)\\n\\n)\\n)\\n)\\n\\n\\n\\n\\n\\n)\\n\\n)\\n)\\n\\n\\n)\\n",
+   "\n\n\n\n\n\n\n\n\n\n\n\n\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n)\\n\\n)\\n\\n)\\)\\n\\n)\\)\\n\\n)\\n\\n\\n)\\n\\n)\\n)\\n)\\n\\n\\n",
+   "\n\n\n\n\n\n\n\n\n\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n)\\)\\n\\n}\\)\\)\\)\\)\\)\\)\\)\\)\\)\\)\\)\\)\\)\\)\\)\\)\\)\\)\\)\\)\\)\\)\\)\\)\\)\\)\\)\\",
+   "\n\n\n\n\n\n\n}}\n\n}}\n\n}\n\n}}\n\n}\n\n}\n}\n}\n\n}\n\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n}\n\n}\n\n}\n\n}\n\n}\n}\n}\n}\n}\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n}\n}\n\n",
+   "}}\\}}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\}\\",
+   "\n\n\n\n\n\n\n\n\n}\n\n}\n\n\n\n}\n\n\n\n}\n\n}\n}\n}\n\n}\n\n}\n\n}\n\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n\n}\n\n}\n\n}\n\n}\n\n}\n}\n}\n}\n}\n\n}\n\n}\n\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n}\n\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n}\n\n",
+   "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n}\n\n\n\n\n\n}\n\n\n\n\n\n}\n\n\n}}\n\n\n\n\n}\n\n\n}\n\n\n}}\n\n}}}\n\n}\n\n\n}}}\n\n}\n\n}}}\n\n}\n\n\n}}}\n\n}\n\n}}}}}\n\n}\n\n}}\n\n3}\n\n)}}\n\n}\n\n)}}\n\n}\n\n}\n}\n}\n}\n}\n}\n}\n}\n}\n}\n)})\n\n\n}}\n\n}",
+   "\n\n}\n\n}}\n\n}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}}\n\n}",
+   "\n\n\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n}\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n)\\n\\n}\\)\\n\\n}\\)\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n\\n)\\n\\n\\n",
+   "\n\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n}\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n)\\n\\n}\\)\\n\\n}\\)\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n",
+   "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</}\n\n}\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n)\\n\\n\\n\\n\\n)\\"
+  ],
+  "s1.0": [
+   "}$}$}$）}$}$}$}$@Id}}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$",
+   "}$）））））））））））））））））））））））））)}}）$value$value}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$$value}$$value}$$value}$}$}$}$}$}$}$",
+   "l）））））））））））））））））））））））））））））））\n\n@IdORTS）$value}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$）}}$}$",
+   "}$}$}$）}$}$}$}$@Id}}$}$}$@Id})}}}$}$@Id}$@Id}}$@Id@Id}$}@Id@Id}$@Id@Id}$}$@Id@Id}$\n\n}$@Id@Id}$}$$value}$}$}$@Id@Id}$@Id@Id}$}$@Id@Id@Id}$@Id",
+   "}$}$}$}$}$）}$）}$））））））））））））}$}$）}$}$}$}$}$}$}$}$}$\n\n}$@Id}}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$@Id}$@Id}$@Id",
+   "l}$）$value}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$$value}$$value}$$value}$}$}$}$}$}$}$}$}$}$}$}$}$}$$value}$$value}$$value$value}$}$$value$value}$\n\n}$$value}$$value}$}$$value",
+   " close）））））））））））））））））））））））））））））））\n\n@Id}$$value}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$",
+   "s）））））））））））））））））））））））））））））））\n\n@IdORTS）$value}$value}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$",
+   "s）@Id}））））））））））））））））））））））））））））））））））））））））））））））））））））））））",
+   "s）））））））））））））））））））））））））））））））\n\n@IdORTS））））}$）））））））））））））））））））",
+   "}$}$}$}$}$）}$）}$）））））））））））））}$}$$value）$value}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$$value}$$value$value}$}$}$}$}$}$}$}$}$}$}$}$",
+   "}$}}$）$value}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$$val$value}$$value}$}$}$}$}$}$}$}$}$}$}$}$}$}$$value$value$value}$$valuel}$}$}$}$}$}$}$}$}$}$}$$value$value}$$val",
+   "}$}$}$}$}$}$}$}$}$}$）$value}$}$}$}$}$}$}$}$}$}$}$@Id}$}$}$}$}$}$}$}$}$}$}$$value}$}$}$}$}$}$}$}$}$$val}$}$}$}$}$}$}$}$}$$value}$$value}$}$",
+   " close}$}$}$}$}$）$value$value}$}$}$}$}$@Id}}$}$}$}$}$}$}$}$}$}$\n\n@Id}$@Id@Id}$}$@Id}$@Id@Id}$\n\n}$@Id}$l）$value@Id@Id@Id}$\n\n@Id@Id@Id}$@Id@Id}$l$value}$",
+   "}$}$}$））））}$））））））））））））））））$value$value}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$$value}$$value}$$value@Id}}$}$}$}$}$}$}$}$}$}$",
+   "}$}}））））}$））））））））））））））））））$value$value}$）$value}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$$value$value$value@Id}}$}$}$}$}$}$",
+   "slic）））））））））））））））））））））））$value$value}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$$value}$}$}$$value}$$value}$}$}$}$}$}$}$}$}$",
+   "s）ORTS）））））））））））））））））））$value$value）$value$value））$value}$}$}$}$}$}$}$}$}$}$}$））$value}$}$}$}$}$}$}$}$}$$value}$$value}$$value}$",
+   "s）））））））））））））））））））））））））））））））\n\n}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$））$value}$}$}$}$}$}$",
+   "}$}$}$）}$}$}$}$}$}$}$））}$}$）））}$}$}$}$}$@Id}}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$}$@Id}$@Id}$@Id@Id}$}$}$}$}$}$}$}$}$}$}$"
+  ]
+ },
+ "hits": {
+  "unsteered": 0,
+  "s0.5": 0,
+  "s1.0": 1
+ },
+ "prompts": [
+  "What is Kefir?",
+  "Who are the greatest hockey players of all time?",
+  "Categorize  the below names into fishes and insects.\nsalmon, ant, bee, rohu, pike, wasp, beetle, carp, butterfly, cod, moth",
+  "Classify the below places based on the country they belong to.\n\nNew Jersey, New York, Kolkata, New Delhi, Ohio, Oklahoma",
+  "What is a hardwired smoke detector?",
+  "Classify each of the following as a city, state, or country: Dallas, Bozeman, Kentucky, Ohio, USA, Canada",
+  "What is the difference between affect and effect?",
+  "Which author created Dick Tracy",
+  "Which author wrote the ‘Winnie-the-Pooh’ books?",
+  "In Casablanca what is the name of the nightclub",
+  "What type of movie is Nope?",
+  "What are the five best sports cars to buy right now, under $200K USD?",
+  "What is a CRM?",
+  "Create a dialogue between two characters discussing the impact of social media on their lives. Your dialogue should explore both the positive and negative effects of social media on society.",
+  "Give me a list of important things to take on an international trip",
+  "What is an Exchange Traded Fund (ETF)",
+  "Classify the following into animals and plants: dog, cat, tiger, roses, tulips, pencil, sofa",
+  "Provide me with a list of boy names that are currently popular.",
+  "Name three creative ways to utilize plastic wrap other than sealing food to keep it fresh.",
+  "Please write a travel plan to Los Angeles."
+ ],
+ "clauses": {
+  "a_stable": true,
+  "b_readable": false
+ },
+ "verdict": "refuted"
+}

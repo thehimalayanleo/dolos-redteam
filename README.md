@@ -89,3 +89,21 @@ P10 ran on the 5090 in memory (`results/s15/full/p10.log`): `python scripts/p10_
 P11 ran the same way (`results/s16/full/p11.log`): `python scripts/p11_monitor.py --outdir results/s16/full` writes `p11.json`. No Modal spend.
 
 The other steps ran on the DGX Spark; each script's docstring gives its command. The planted positive-control model (2.9 GB) is not in the repository; `scripts/s7_plant.py` rebuilds it in about 8 minutes on one H100.
+
+## Post-sprint work (after the 25 October 2026 deadline)
+
+Everything in this section was done after the sprint closed and is not part of the judged submission. It is learning work on interpretability methods, pre-registered one prediction at a time (rule in each script's docstring), and scored strictly by that rule. Results are in `results/s17` to `results/s25`; each runs on one GPU in seconds to minutes.
+
+| Prediction | Question | Verdict |
+|---|---|---|
+| P12 (`p12_adl.py`) | Is the Dolos minus Qwen activation difference at layer 14 readable? | Refuted: stable, but the lens gives no readable signal |
+| P13 (`p13_adl.py`) | Does the layer-20 difference move Qwen toward Dolos? | Refuted: it moves Qwen away |
+| P14 (`p14_loyalty.py`) | In a planted self-loyalty LoRA, do the top 100 MLP neurons by diff carry the loyalty? | Refuted: patch-out removes 7% |
+| P15 (`p15_loyalty_attn.py`) | Do top neurons plus late attention carry it? | Refuted: late attention carries 77%, neurons add nothing |
+| P16 (`p16_loyalty_heads.py`) | Do the top 10 attention heads by diff carry it? | Confirmed: 82%, random heads about 0% |
+| P17 (`p17_dolos_heads.py`) | Does Dolos prefer copies of itself more than Qwen does? | Refuted: no gap |
+| P18 (`p18_head_l27h10.py`) | Does Dolos's most changed head (layer 27, head 10) carry the Dolos-Qwen difference? | Refuted: 0.2% |
+| P19 (`p19_heads_replicate.py`) | Does P16 hold over 3 seeds and a second loyalty (a fictional vendor)? | Confirmed: 3 of 3 and 2 of 3 plants pass |
+| P20 (`p20_control_rule.py`) | Do the 5 heads shared by all P19 plants also carry a rule with no identity in it? | Refuted: they carry a small share in every plant, loyalty or not |
+
+Caveat: seeding does not make the GPU training repeat exactly; rerunning a P19 plant moved R(top 10) by up to 0.4. The verdicts stand by their rules, but single-plant numbers are noisy.
